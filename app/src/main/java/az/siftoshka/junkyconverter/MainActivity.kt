@@ -11,7 +11,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import az.siftoshka.junkyconverter.screens.intro.IntroScreen
+import az.siftoshka.junkyconverter.screens.junksettings.JunkSettingsScreen
 import az.siftoshka.junkyconverter.screens.main.MainScreen
+import az.siftoshka.junkyconverter.screens.settings.SettingsScreen
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -43,6 +45,16 @@ class MainActivity : AppCompatActivity() {
                             route = Screen.MainScreen.route
                         ) {
                             MainScreen()
+                        }
+                        composable(
+                            route = Screen.SettingsScreen.route
+                        ) {
+                            SettingsScreen()
+                        }
+                        composable(
+                            route = Screen.JunkSettingsScreen.route
+                        ) {
+                            JunkSettingsScreen()
                         }
                     }
                 }
