@@ -1,42 +1,52 @@
 package az.siftoshka.junkyconverter
 
+import Screen
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import az.siftoshka.junkyconverter.screens.intro.IntroScreen
+import az.siftoshka.junkyconverter.screens.main.MainScreen
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * The MainActivity of the app. There is only single activity.
  */
-class MainActivity : ComponentActivity() {
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
+
+    private val viewModel: SharedViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             JunkyConverterTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                    val navController = rememberNavController()
+                    NavHost(
+                        navController = navController,
+                        startDestination = Screen.IntroScreen.route
+                    ) {
+                        composable(
+                            route = Screen.IntroScreen.route
+                        ) {
+                            if (viewModel.isIntroShown()) MainScreen()
+                            else IntroScreen(navController)
+                        }
+                        composable(
+                            route = Screen.MainScreen.route
+                        ) {
+                            MainScreen()
+                        }
+                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!", style = MaterialTheme.typography.h1)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    JunkyConverterTheme {
-        Greeting("Android")
     }
 }
