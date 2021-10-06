@@ -6,7 +6,7 @@ import az.siftoshka.junkyconverter.data.model.JunkDAO
 import javax.inject.Inject
 
 /**
- * The repository class for Junk food.
+ * The repository class for [Junk] model.
  */
 class JunkRepository @Inject constructor(private val junkDAO: JunkDAO) {
 

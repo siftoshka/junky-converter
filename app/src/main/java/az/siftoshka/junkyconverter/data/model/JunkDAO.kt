@@ -8,7 +8,7 @@ import az.siftoshka.junkyconverter.utils.Constants
 import kotlinx.coroutines.flow.Flow
 
 /**
- * The DAO interface of the Junk Database.
+ * The DAO interface of the [JunkDatabase].
  */
 @Dao
 interface JunkDAO {
