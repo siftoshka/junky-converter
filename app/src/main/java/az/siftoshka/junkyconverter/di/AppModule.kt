@@ -1,8 +1,10 @@
 package az.siftoshka.junkyconverter.di
 
+import android.app.Application
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.room.Room
-import az.siftoshka.junkyconverter.common.Constants
+import az.siftoshka.junkyconverter.utils.Constants
 import az.siftoshka.junkyconverter.data.model.JunkDatabase
 import dagger.Module
 import dagger.Provides
@@ -26,5 +28,10 @@ object AppModule {
     @Singleton
     @Provides
     fun provideJunkDAO(database: JunkDatabase) = database.getJunkDAO()
+
+    @Provides
+    @Singleton
+    fun provideSharedPreferences(app : Application) : SharedPreferences
+        = app.applicationContext.getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE)
 
 }
