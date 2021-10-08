@@ -38,6 +38,7 @@ import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.data.model.Junk
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
 import az.siftoshka.junkyconverter.utils.Constants
+import az.siftoshka.junkyconverter.utils.moneyFormat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 /**
@@ -130,7 +131,7 @@ fun Converter(junk: Junk) {
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "0",
+                text = "0".moneyFormat(),
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.onSurface,
                 fontSize = 36.sp
