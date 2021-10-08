@@ -66,7 +66,7 @@ fun IntroScreen(
                         .padding(8.dp)
                         .width(164.dp)
                         .height(48.dp),
-                    shape = RoundedCornerShape(20.dp),
+                    shape = RoundedCornerShape(50.dp),
                     elevation = ButtonDefaults.elevation()
                 ) {
                     Text(text = stringResource(id = R.string.btn_intro))
