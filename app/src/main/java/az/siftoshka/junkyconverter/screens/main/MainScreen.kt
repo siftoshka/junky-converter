@@ -23,7 +23,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import az.siftoshka.junkyconverter.R
+import az.siftoshka.junkyconverter.data.model.Junk
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
@@ -32,8 +34,11 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
  */
 @Preview(showBackground = true)
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    viewModel: MainViewModel = hiltViewModel()
+) {
 
+    val state = viewModel.state.value
     val systemUiController = rememberSystemUiController()
     systemUiController.setStatusBarColor(color = MaterialTheme.colors.background)
 
@@ -54,7 +59,10 @@ fun MainScreen() {
                     color = MaterialTheme.colors.onBackground,
                 )
             }
-            Converter()
+            println(state.junk.toString())
+            state.junk?.let {
+                Converter(it)
+            }
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Bottom
@@ -66,7 +74,7 @@ fun MainScreen() {
 }
 
 @Composable
-fun Converter() {
+fun Converter(junk: Junk) {
     Row(
         modifier = Modifier.padding(16.dp),
         horizontalArrangement = Arrangement.Center,
@@ -92,7 +100,7 @@ fun Converter() {
             modifier = Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Burgers",
+                text = stringResource(id = junk.name),
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.onBackground
             )

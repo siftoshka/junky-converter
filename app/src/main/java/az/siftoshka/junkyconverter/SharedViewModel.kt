@@ -22,10 +22,8 @@ class SharedViewModel @Inject constructor(
     fun setIntroShown(value: Boolean) = prefs.setIntroShown(value)
 
     fun setInitialData() {
-        if (isIntroShown()) {
-            viewModelScope.launch {
-                repository.insertInitialJunks()
-            }
+        viewModelScope.launch {
+            repository.insertInitialJunks()
         }
     }
 }

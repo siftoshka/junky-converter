@@ -14,18 +14,20 @@ class JunkRepository @Inject constructor(private val junkDAO: JunkDAO) {
 
     suspend fun insertInitialJunks() {
         val junks = listOf(
-            Junk(JunkFoodCategory.BURGER, R.string.app_name, icon = R.drawable.ic_launcher_background),
-            Junk(JunkFoodCategory.PIZZA, R.string.app_name, icon = R.drawable.ic_launcher_background),
-            Junk(JunkFoodCategory.KEBAB, R.string.app_name, icon = R.drawable.ic_launcher_background),
-            Junk(JunkFoodCategory.CHIPS, R.string.app_name, icon = R.drawable.ic_launcher_background),
-            Junk(JunkFoodCategory.DONUT, R.string.app_name, icon = R.drawable.ic_launcher_background),
-            Junk(JunkFoodCategory.TACO, R.string.app_name, icon = R.drawable.ic_launcher_background),
-            Junk(JunkFoodCategory.MUFFIN, R.string.app_name, icon = R.drawable.ic_launcher_background)
+            Junk(JunkFoodCategory.BURGER, R.string.app_name, icon = R.drawable.ic_launcher_foreground),
+            Junk(JunkFoodCategory.PIZZA, R.string.app_name, icon = R.drawable.ic_launcher_foreground),
+            Junk(JunkFoodCategory.KEBAB, R.string.app_name, icon = R.drawable.ic_launcher_foreground),
+            Junk(JunkFoodCategory.CHIPS, R.string.app_name, icon = R.drawable.ic_launcher_foreground),
+            Junk(JunkFoodCategory.DONUT, R.string.app_name, icon = R.drawable.ic_launcher_foreground),
+            Junk(JunkFoodCategory.TACO, R.string.app_name, icon = R.drawable.ic_launcher_foreground),
+            Junk(JunkFoodCategory.MUFFIN, R.string.app_name, icon = R.drawable.ic_launcher_foreground)
         )
         junkDAO.insertInitialJunks(junks)
     }
 
-    fun getAllJunksByName() = junkDAO.getAllJunksByName()
+    suspend fun getSelectedJunk(id: Int) = junkDAO.getSelectedJunk(id)
+
+    suspend fun getAllJunksByName() = junkDAO.getAllJunksByName()
 }
 
 enum class JunkFoodCategory(val value: Int) {
