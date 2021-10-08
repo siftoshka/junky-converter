@@ -44,12 +44,11 @@ fun IntroScreen(
     viewModel: SharedViewModel = hiltViewModel()
 ) {
     val systemUiController = rememberSystemUiController()
+    systemUiController.setStatusBarColor(color = MaterialTheme.colors.surface)
 
     viewModel.setInitialData()
-    //viewModel.setIntroShown(true)
 
     JunkyConverterTheme {
-        systemUiController.setStatusBarColor(color = MaterialTheme.colors.surface)
         Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxSize()) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -58,6 +57,7 @@ fun IntroScreen(
             ) {
                 Button(
                     onClick = {
+                        viewModel.setIntroShown(true)
                         navController.navigate(Screen.MainScreen.route) {
                             popUpTo(Screen.IntroScreen.route) { inclusive = true }
                         }
@@ -112,7 +112,7 @@ fun IntroductionCard() {
             Text(
                 text = "App in the development",
                 style = MaterialTheme.typography.body2,
-                color = MaterialTheme.colors.onSurface,
+                color = MaterialTheme.colors.error,
                 textAlign = TextAlign.Center,
             )
         }
