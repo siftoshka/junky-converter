@@ -5,13 +5,14 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import az.siftoshka.junkyconverter.screens.intro.IntroScreen
-import az.siftoshka.junkyconverter.screens.junksettings.JunkSettingsScreen
+import az.siftoshka.junkyconverter.screens.junkstuning.JunkSettingsScreen
 import az.siftoshka.junkyconverter.screens.main.MainScreen
 import az.siftoshka.junkyconverter.screens.settings.SettingsScreen
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: SharedViewModel by viewModels()
 
+    @ExperimentalMaterialApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -38,13 +40,13 @@ class MainActivity : AppCompatActivity() {
                         composable(
                             route = Screen.IntroScreen.route
                         ) {
-                            if (viewModel.isIntroShown()) MainScreen()
+                            if (viewModel.isIntroShown()) MainScreen(navController)
                             else IntroScreen(navController)
                         }
                         composable(
                             route = Screen.MainScreen.route
                         ) {
-                            MainScreen()
+                            MainScreen(navController)
                         }
                         composable(
                             route = Screen.SettingsScreen.route
@@ -52,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                             SettingsScreen()
                         }
                         composable(
-                            route = Screen.JunkSettingsScreen.route
+                            route = Screen.JunksTuning.route
                         ) {
                             JunkSettingsScreen()
                         }

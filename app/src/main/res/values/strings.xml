@@ -12,4 +12,6 @@
     <string name="text_converter">Converter</string>
     <string name="text_your_money">Your money</string>
     <string name="text_change_junk">Change junk</string>
+    <string name="menu_text_junks_tuning">Junks Tuning</string>
+    <string name="menu_text_settings">Settings</string>
 </resources>

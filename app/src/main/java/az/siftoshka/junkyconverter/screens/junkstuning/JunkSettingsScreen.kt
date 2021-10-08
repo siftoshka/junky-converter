@@ -1,4 +1,4 @@
-package az.siftoshka.junkyconverter.screens.junksettings
+package az.siftoshka.junkyconverter.screens.junkstuning
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -13,5 +13,5 @@ fun JunkSettingsScreen(
     viewModel: SharedViewModel = hiltViewModel()
 ) {
 
-    Text(text = "JUNK SETTINGS")
+    Text(text = "JUNKS Tuning")
 }
