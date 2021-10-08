@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">Junky Converter</string>
+
+    <!--Introduction Screen-->
     <string name="app_name_introduction">Junky\nConverter</string>
     <string name="app_description">Converter of your money to the number of junky food, with your personal prices for each food. \nIt is absolutely free application! \nReally! </string>
     <string name="btn_intro">I want to try :)</string>
     <string name="img_desc_logo">The logo of the app.</string>
+
+    <!--Main Screen-->
+    <string name="text_junky">Junky</string>
+    <string name="text_converter">Converter</string>
+    <string name="text_your_money">Your money</string>
+    <string name="text_change_junk">Change junk</string>
 </resources>
