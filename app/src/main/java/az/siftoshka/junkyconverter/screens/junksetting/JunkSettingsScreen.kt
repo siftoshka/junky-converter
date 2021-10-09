@@ -1,4 +1,4 @@
-package az.siftoshka.junkyconverter.screens.junkstuning
+package az.siftoshka.junkyconverter.screens.junksetting
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
