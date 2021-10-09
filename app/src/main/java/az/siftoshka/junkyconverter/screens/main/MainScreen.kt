@@ -13,17 +13,27 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
 import androidx.compose.material.Divider
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Icon
+import androidx.compose.material.ListItem
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.ModalBottomSheetLayout
+import androidx.compose.material.ModalBottomSheetState
+import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -41,6 +51,8 @@ import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
 import az.siftoshka.junkyconverter.utils.Constants
 import az.siftoshka.junkyconverter.utils.moneyFormat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 /**
  * Composable function of Main screen.
@@ -53,43 +65,67 @@ fun MainScreen(
     viewModel: MainViewModel = hiltViewModel()
 ) {
 
-    val state = viewModel.state.value
+    val state = viewModel.junkState.value
     val systemUiController = rememberSystemUiController()
     systemUiController.setStatusBarColor(color = MaterialTheme.colors.background)
+    val sheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
+    val scope = rememberCoroutineScope()
 
     JunkyConverterTheme {
-        Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxSize()) {
-            Column(
-                modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.Start
-            ) {
-                Text(
-                    text = stringResource(id = R.string.text_junky),
-                    style = MaterialTheme.typography.h1,
-                    color = MaterialTheme.colors.onBackground,
-                    fontSize = 42.sp
-                )
-                Text(
-                    text = stringResource(id = R.string.text_converter),
-                    style = MaterialTheme.typography.h1,
-                    color = MaterialTheme.colors.onBackground,
-                )
+        ModalBottomSheetLayout(
+            sheetState = sheetState,
+            sheetBackgroundColor = MaterialTheme.colors.surface,
+            sheetShape = MaterialTheme.shapes.large,
+            scrimColor = Color.Transparent,
+            sheetContent = {
+                LazyColumn {
+                    items(50) {
+                        ListItem(
+                            text = { Text("Item $it") },
+                            icon = {
+                                Icon(
+                                    Icons.Default.Favorite,
+                                    contentDescription = "Localized description"
+                                )
+                            }
+                        )
+                    }
+                }
             }
-            state.junk?.let {
-                Converter(it, viewModel)
-            }
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Bottom
-            ) {
-                ChangeJunkButton()
-                Options(navController)
-                LazyVerticalGrid(
-                    cells = GridCells.Fixed(3),
-                    modifier = Modifier.padding(12.dp)
+        ) {
+            Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxSize()) {
+                Column(
+                    modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.Start
                 ) {
-                    items(Constants.numPadNumbers.count()) { index ->
-                        val pad = Constants.numPadNumbers[index]
-                        NumPadItem(pad, viewModel)
+                    Text(
+                        text = stringResource(id = R.string.text_junky),
+                        style = MaterialTheme.typography.h1,
+                        color = MaterialTheme.colors.onBackground,
+                        fontSize = 42.sp
+                    )
+                    Text(
+                        text = stringResource(id = R.string.text_converter),
+                        style = MaterialTheme.typography.h1,
+                        color = MaterialTheme.colors.onBackground,
+                    )
+                }
+                state.junk?.let {
+                    Converter(it, viewModel)
+                }
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Bottom
+                ) {
+                    ChangeJunkButton(scope, sheetState)
+                    Options(navController)
+                    LazyVerticalGrid(
+                        cells = GridCells.Fixed(3),
+                        modifier = Modifier.padding(12.dp)
+                    ) {
+                        items(Constants.numPadNumbers.count()) { index ->
+                            val pad = Constants.numPadNumbers[index]
+                            NumPadItem(pad, viewModel)
+                        }
                     }
                 }
             }
@@ -142,10 +178,11 @@ fun Converter(junk: Junk, viewModel: MainViewModel) {
     }
 }
 
+@ExperimentalMaterialApi
 @Composable
-fun ChangeJunkButton() {
+fun ChangeJunkButton(scope: CoroutineScope, state: ModalBottomSheetState) {
     OutlinedButton(
-        onClick = { /*TODO*/ },
+        onClick = { scope.launch { state.show() } },
         modifier = Modifier
             .padding(16.dp)
             .width(164.dp),

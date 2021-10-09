@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
- * General ViewModel to share between screens.
+ * General [ViewModel] to share between screens.
  */
 @HiltViewModel
 class SharedViewModel @Inject constructor(

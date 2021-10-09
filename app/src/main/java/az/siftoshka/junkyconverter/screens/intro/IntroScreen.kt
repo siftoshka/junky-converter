@@ -29,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.SharedViewModel
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
@@ -37,7 +38,6 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 /**
  * Composable function of Introduction screen.
  */
-@Preview(showBackground = true)
 @Composable
 fun IntroScreen(
     navController: NavController,
@@ -117,4 +117,10 @@ fun IntroductionCard() {
             )
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun IntroScreenPreview() {
+    IntroScreen(rememberNavController())
 }
