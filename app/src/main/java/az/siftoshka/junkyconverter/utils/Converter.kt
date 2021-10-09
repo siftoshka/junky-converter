@@ -7,5 +7,6 @@ import java.text.DecimalFormat
  */
 fun String.moneyFormat(): String {
     if (this == "0") return this
-    return DecimalFormat("##,###.00").format(this.toFloat())
+    return if (contains(".")) DecimalFormat("##,###.00").format(toFloat())
+    else DecimalFormat("##,###").format(toFloat())
 }
