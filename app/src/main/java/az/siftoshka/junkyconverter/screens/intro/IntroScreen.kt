@@ -53,7 +53,7 @@ fun IntroScreen(
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Bottom,
-                modifier = Modifier.offset(y = (-64).dp)
+                modifier = Modifier.offset(y = (-32).dp)
             ) {
                 Button(
                     onClick = {
@@ -63,13 +63,17 @@ fun IntroScreen(
                         }
                     },
                     modifier = Modifier
-                        .padding(8.dp)
-                        .width(164.dp)
+                        .padding(16.dp)
+                        .width(186.dp)
                         .height(48.dp),
                     shape = RoundedCornerShape(50.dp),
                     elevation = ButtonDefaults.elevation()
                 ) {
-                    Text(text = stringResource(id = R.string.btn_intro))
+                    Text(
+                        text = stringResource(id = R.string.btn_intro),
+                        style = MaterialTheme.typography.body1,
+                        color = MaterialTheme.colors.onPrimary,
+                    )
                 }
             }
         }
