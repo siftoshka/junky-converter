@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.data.model.Junk
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
@@ -46,7 +47,6 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
  */
 @ExperimentalFoundationApi
 @ExperimentalMaterialApi
-@Preview(showBackground = true)
 @Composable
 fun MainScreen(
     navController: NavController,
@@ -75,7 +75,7 @@ fun MainScreen(
                 )
             }
             state.junk?.let {
-                Converter(it)
+                Converter(it, viewModel)
             }
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -89,7 +89,7 @@ fun MainScreen(
                 ) {
                     items(Constants.numPadNumbers.count()) { index ->
                         val pad = Constants.numPadNumbers[index]
-                        NumPadItem(pad)
+                        NumPadItem(pad, viewModel)
                     }
                 }
             }
@@ -98,7 +98,7 @@ fun MainScreen(
 }
 
 @Composable
-fun Converter(junk: Junk) {
+fun Converter(junk: Junk, viewModel: MainViewModel) {
     Row(
         modifier = Modifier
             .padding(16.dp)
@@ -115,10 +115,11 @@ fun Converter(junk: Junk) {
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "0",
+                text = viewModel.yourMoney.moneyFormat(),
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.primary,
-                fontSize = 36.sp
+                fontSize = 36.sp,
+                maxLines = 1
             )
         }
         Column(
@@ -131,10 +132,11 @@ fun Converter(junk: Junk) {
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "0".moneyFormat(),
+                text = viewModel.junkMoney.moneyFormat(),
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.onSurface,
-                fontSize = 36.sp
+                fontSize = 36.sp,
+                maxLines = 1
             )
         }
     }
@@ -206,9 +208,9 @@ fun Options(navController: NavController) {
 }
 
 @Composable
-fun NumPadItem(data: String) {
+fun NumPadItem(data: String, viewModel: MainViewModel) {
     OutlinedButton(
-        onClick = { /*TODO*/ },
+        onClick = { viewModel.computeYourMoney(data) },
         modifier = Modifier.padding(4.dp),
         shape = RoundedCornerShape(10.dp),
         border = BorderStroke(1.dp, Color.Transparent),
@@ -224,4 +226,13 @@ fun NumPadItem(data: String) {
             modifier = Modifier.padding(8.dp)
         )
     }
+}
+
+@ExperimentalFoundationApi
+@ExperimentalMaterialApi
+@Preview(showBackground = true)
+@Composable
+fun MainScreenPreview() {
+
+    MainScreen(rememberNavController())
 }
