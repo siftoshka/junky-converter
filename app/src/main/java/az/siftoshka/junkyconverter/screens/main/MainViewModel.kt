@@ -112,6 +112,9 @@ class MainViewModel @Inject constructor(
     fun setJunk(junk: Junk) {
         setJunkUseCase(junk.id)
         _junkState.value = SelectedJunkState(junk = junk)
+        moneyBuilder.clear()
+        yourMoney = "0"
+        junkMoney = "0"
     }
 }
 
