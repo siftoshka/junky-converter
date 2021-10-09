@@ -68,8 +68,10 @@ fun MainScreen(
 
     val state = viewModel.junkState.value
     val listState = viewModel.junksState.value
+
     val systemUiController = rememberSystemUiController()
     systemUiController.setStatusBarColor(color = MaterialTheme.colors.background)
+
     val sheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
     val scope = rememberCoroutineScope()
 
@@ -83,8 +85,7 @@ fun MainScreen(
                 LazyColumn(modifier = Modifier.defaultMinSize(minHeight = 1.dp)) {
                     listState.junks?.let { junks ->
                         items(junks.size) {
-                            val junk = junks[it]
-                            JunkBottomItem(junk, viewModel, scope, sheetState)
+                            JunkBottomItem(junks[it], viewModel, scope, sheetState)
                         }
                     }
                 }
@@ -106,9 +107,7 @@ fun MainScreen(
                         color = MaterialTheme.colors.onBackground,
                     )
                 }
-                state.junk?.let {
-                    Converter(it, viewModel)
-                }
+                state.junk?.let { Converter(it, viewModel) }
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Bottom
@@ -120,8 +119,7 @@ fun MainScreen(
                         modifier = Modifier.padding(12.dp)
                     ) {
                         items(Constants.numPadNumbers.count()) { index ->
-                            val pad = Constants.numPadNumbers[index]
-                            NumPadItem(pad, viewModel)
+                            NumPadItem(Constants.numPadNumbers[index], viewModel)
                         }
                     }
                 }
@@ -268,8 +266,7 @@ fun JunkBottomItem(data: Junk, viewModel: MainViewModel, scope: CoroutineScope, 
     Card(
         shape = RoundedCornerShape(10.dp),
         onClick = {
-            viewModel.setJunk(data.id)
-
+            viewModel.setJunk(data)
             scope.launch { sheetState.hide() }
         },
         backgroundColor = MaterialTheme.colors.surface,
@@ -297,7 +294,7 @@ fun JunkBottomItem(data: Junk, viewModel: MainViewModel, scope: CoroutineScope, 
 
 @ExperimentalFoundationApi
 @ExperimentalMaterialApi
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun MainScreenPreview() {
 

@@ -109,7 +109,10 @@ class MainViewModel @Inject constructor(
         } else "0"
     }
 
-    fun setJunk(id: Int) = setJunkUseCase(id)
+    fun setJunk(junk: Junk) {
+        setJunkUseCase(junk.id)
+        _junkState.value = SelectedJunkState(junk = junk)
+    }
 }
 
 data class SelectedJunkState(
