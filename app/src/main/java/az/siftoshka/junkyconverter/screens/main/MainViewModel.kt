@@ -93,6 +93,12 @@ class MainViewModel @Inject constructor(
                     yourMoney = "0"
                 }
             }
+            "." -> {
+                if (moneyBuilder.isNotEmpty() && yourMoney != "0") {
+                    moneyBuilder.append(value)
+                    yourMoney = moneyBuilder.toString()
+                }
+            }
             else -> {
                 if (moneyBuilder.length <= 4 && !moneyBuilder.contains(".##")) {
                     moneyBuilder.append(value)
