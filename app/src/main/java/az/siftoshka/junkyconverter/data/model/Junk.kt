@@ -12,5 +12,6 @@ data class Junk(
     @PrimaryKey var id: Int,
     var name: Int,
     var value: Float? = 1f,
-    var icon: Int
+    var icon: Int,
+    var iconDescription: Int
 )

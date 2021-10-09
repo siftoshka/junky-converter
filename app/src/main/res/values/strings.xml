@@ -23,4 +23,13 @@
     <string name="item_chips">Chips</string>
     <string name="item_donuts">Donuts</string>
     <string name="item_tacos">Tacos</string>
+
+    <!--Item names-->
+    <string name="img_desc_item_burgers">The icon of burgers</string>
+    <string name="img_desc_item_pizzas">The icon of pizzas</string>
+    <string name="img_desc_item_kebabs">The icon of kebabs</string>
+    <string name="img_desc_item_muffins">The icon of muffins</string>
+    <string name="img_desc_item_chips">The icon of chips</string>
+    <string name="img_desc_item_donuts">The icon of donuts</string>
+    <string name="img_desc_item_tacos">The icon of tacos</string>
 </resources>

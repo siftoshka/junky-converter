@@ -1,6 +1,5 @@
 package az.siftoshka.junkyconverter.screens.main
 
-import az.siftoshka.junkyconverter.Screen
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -26,7 +25,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.ListItem
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ModalBottomSheetLayout
-import androidx.compose.material.ModalBottomSheetState
 import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Surface
@@ -47,12 +45,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import az.siftoshka.junkyconverter.R
+import az.siftoshka.junkyconverter.Screen
 import az.siftoshka.junkyconverter.data.model.Junk
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
 import az.siftoshka.junkyconverter.utils.Constants
 import az.siftoshka.junkyconverter.utils.moneyFormat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 /**
@@ -85,7 +83,10 @@ fun MainScreen(
                 LazyColumn(modifier = Modifier.defaultMinSize(minHeight = 1.dp)) {
                     listState.junks?.let { junks ->
                         items(junks.size) {
-                            JunkBottomItem(junks[it], viewModel, scope, sheetState)
+                            JunkBottomItem(junks[it]) {
+                                viewModel.setJunk(junks[it])
+                                scope.launch { sheetState.hide() }
+                            }
                         }
                     }
                 }
@@ -112,14 +113,16 @@ fun MainScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Bottom
                 ) {
-                    ChangeJunkButton(scope, sheetState)
+                    ChangeJunkButton { scope.launch { sheetState.show() } }
                     Options(navController)
                     LazyVerticalGrid(
                         cells = GridCells.Fixed(3),
                         modifier = Modifier.padding(12.dp)
                     ) {
                         items(Constants.numPadNumbers.count()) { index ->
-                            NumPadItem(Constants.numPadNumbers[index], viewModel)
+                            NumPadItem(Constants.numPadNumbers[index]) {
+                                viewModel.computeYourMoney(Constants.numPadNumbers[index])
+                            }
                         }
                     }
                 }
@@ -175,9 +178,9 @@ fun Converter(junk: Junk, viewModel: MainViewModel) {
 
 @ExperimentalMaterialApi
 @Composable
-fun ChangeJunkButton(scope: CoroutineScope, state: ModalBottomSheetState) {
+fun ChangeJunkButton(onPerformClick: () -> Unit) {
     OutlinedButton(
-        onClick = { scope.launch { state.show() } },
+        onClick = onPerformClick,
         modifier = Modifier
             .padding(16.dp)
             .width(164.dp),
@@ -240,9 +243,9 @@ fun Options(navController: NavController) {
 }
 
 @Composable
-fun NumPadItem(data: String, viewModel: MainViewModel) {
+fun NumPadItem(data: String, onPerformClick: () -> Unit) {
     OutlinedButton(
-        onClick = { viewModel.computeYourMoney(data) },
+        onClick = onPerformClick,
         modifier = Modifier.padding(4.dp),
         shape = RoundedCornerShape(10.dp),
         border = BorderStroke(1.dp, Color.Transparent),
@@ -262,13 +265,10 @@ fun NumPadItem(data: String, viewModel: MainViewModel) {
 
 @ExperimentalMaterialApi
 @Composable
-fun JunkBottomItem(data: Junk, viewModel: MainViewModel, scope: CoroutineScope, sheetState: ModalBottomSheetState) {
+fun JunkBottomItem(data: Junk, onPerformClick: () -> Unit) {
     Card(
         shape = RoundedCornerShape(10.dp),
-        onClick = {
-            viewModel.setJunk(data)
-            scope.launch { sheetState.hide() }
-        },
+        onClick = onPerformClick,
         backgroundColor = MaterialTheme.colors.surface,
         elevation = 0.dp,
         modifier = Modifier.padding(4.dp)
@@ -284,7 +284,7 @@ fun JunkBottomItem(data: Junk, viewModel: MainViewModel, scope: CoroutineScope, 
             icon = {
                 Icon(
                     painter = painterResource(id = data.icon),
-                    contentDescription = "Localized description",
+                    contentDescription = stringResource(id = data.iconDescription),
                     modifier = Modifier.size(64.dp)
                 )
             }
