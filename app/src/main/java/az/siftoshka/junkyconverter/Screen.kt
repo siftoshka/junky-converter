@@ -1,3 +1,5 @@
+package az.siftoshka.junkyconverter
+
 /**
  * The sealed class for the navigation between [Screen]-s.
  */

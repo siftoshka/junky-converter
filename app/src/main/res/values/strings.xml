@@ -14,4 +14,13 @@
     <string name="text_change_junk">Change junk</string>
     <string name="menu_text_junks_tuning">Junks Tuning</string>
     <string name="menu_text_settings">Settings</string>
+    
+    <!--Item names-->
+    <string name="item_burgers">Burgers</string>
+    <string name="item_pizzas">Pizzas</string>
+    <string name="item_kebabs">Kebabs</string>
+    <string name="item_muffins">Muffins</string>
+    <string name="item_chips">Chips</string>
+    <string name="item_donuts">Donuts</string>
+    <string name="item_tacos">Tacos</string>
 </resources>

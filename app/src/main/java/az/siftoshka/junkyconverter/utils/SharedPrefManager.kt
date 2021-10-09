@@ -2,7 +2,6 @@ package az.siftoshka.junkyconverter.utils
 
 import android.content.SharedPreferences
 import androidx.core.content.edit
-import az.siftoshka.junkyconverter.data.JunkFoodCategory
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -26,7 +25,7 @@ class SharedPrefManager @Inject constructor(private val preferences: SharedPrefe
         }
     }
 
-    fun getSelectedJunk() = preferences.getInt(KEY_JUNK_ID, JunkFoodCategory.BURGER.value)
+    fun getSelectedJunk() = preferences.getInt(KEY_JUNK_ID, 1)
 
     fun selectJunk(value: Int) {
         preferences.edit(commit = true) {

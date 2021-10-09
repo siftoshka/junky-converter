@@ -2,7 +2,6 @@ package az.siftoshka.junkyconverter.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import az.siftoshka.junkyconverter.data.JunkFoodCategory
 import az.siftoshka.junkyconverter.utils.Constants
 
 /**
@@ -10,7 +9,7 @@ import az.siftoshka.junkyconverter.utils.Constants
  */
 @Entity(tableName = Constants.TABLE_NAME)
 data class Junk(
-    @PrimaryKey var id: JunkFoodCategory,
+    @PrimaryKey var id: Int,
     var name: Int,
     var value: Float? = 1f,
     var icon: Int

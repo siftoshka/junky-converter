@@ -1,16 +1,18 @@
 package az.siftoshka.junkyconverter.screens.main
 
-import Screen
+import az.siftoshka.junkyconverter.Screen
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
@@ -29,14 +31,13 @@ import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -66,6 +67,7 @@ fun MainScreen(
 ) {
 
     val state = viewModel.junkState.value
+    val listState = viewModel.junksState.value
     val systemUiController = rememberSystemUiController()
     systemUiController.setStatusBarColor(color = MaterialTheme.colors.background)
     val sheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
@@ -78,17 +80,12 @@ fun MainScreen(
             sheetShape = MaterialTheme.shapes.large,
             scrimColor = Color.Transparent,
             sheetContent = {
-                LazyColumn {
-                    items(50) {
-                        ListItem(
-                            text = { Text("Item $it") },
-                            icon = {
-                                Icon(
-                                    Icons.Default.Favorite,
-                                    contentDescription = "Localized description"
-                                )
-                            }
-                        )
+                LazyColumn(modifier = Modifier.defaultMinSize(minHeight = 1.dp)) {
+                    listState.junks?.let { junks ->
+                        items(junks.size) {
+                            val junk = junks[it]
+                            JunkBottomItem(junk, viewModel, scope, sheetState)
+                        }
                     }
                 }
             }
@@ -261,6 +258,39 @@ fun NumPadItem(data: String, viewModel: MainViewModel) {
             style = MaterialTheme.typography.h4,
             color = MaterialTheme.colors.onBackground,
             modifier = Modifier.padding(8.dp)
+        )
+    }
+}
+
+@ExperimentalMaterialApi
+@Composable
+fun JunkBottomItem(data: Junk, viewModel: MainViewModel, scope: CoroutineScope, sheetState: ModalBottomSheetState) {
+    Card(
+        shape = RoundedCornerShape(10.dp),
+        onClick = {
+            viewModel.setJunk(data.id)
+
+            scope.launch { sheetState.hide() }
+        },
+        backgroundColor = MaterialTheme.colors.surface,
+        elevation = 0.dp,
+        modifier = Modifier.padding(4.dp)
+    ) {
+        ListItem(
+            text = {
+                Text(
+                    text = stringResource(id = data.name),
+                    style = MaterialTheme.typography.h4,
+                    color = MaterialTheme.colors.onSurface,
+                )
+            },
+            icon = {
+                Icon(
+                    painter = painterResource(id = data.icon),
+                    contentDescription = "Localized description",
+                    modifier = Modifier.size(64.dp)
+                )
+            }
         )
     }
 }
