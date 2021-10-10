@@ -46,7 +46,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.Screen
-import az.siftoshka.junkyconverter.data.model.Junk
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
 import az.siftoshka.junkyconverter.utils.Constants
 import az.siftoshka.junkyconverter.utils.moneyFormat
@@ -83,7 +82,8 @@ fun MainScreen(
                 LazyColumn(modifier = Modifier.defaultMinSize(minHeight = 1.dp)) {
                     listState.junks?.let { junks ->
                         items(junks.size) {
-                            JunkBottomItem(junks[it]) {
+                            val junk = junks[it]
+                            JunkBottomItem(junk.name, junk.icon, junk.iconDescription) {
                                 viewModel.setJunk(junks[it])
                                 scope.launch { sheetState.hide() }
                             }
@@ -108,7 +108,7 @@ fun MainScreen(
                         color = MaterialTheme.colors.onBackground,
                     )
                 }
-                state.junk?.let { Converter(it, viewModel) }
+                state.junk?.let { Converter(it.name, viewModel) }
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Bottom
@@ -132,7 +132,7 @@ fun MainScreen(
 }
 
 @Composable
-fun Converter(junk: Junk, viewModel: MainViewModel) {
+fun Converter(name: Int, viewModel: MainViewModel) {
     Row(
         modifier = Modifier
             .padding(16.dp)
@@ -160,7 +160,7 @@ fun Converter(junk: Junk, viewModel: MainViewModel) {
             modifier = Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = stringResource(id = junk.name),
+                text = stringResource(id = name),
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.onBackground
             )
@@ -265,7 +265,7 @@ fun NumPadItem(data: String, onPerformClick: () -> Unit) {
 
 @ExperimentalMaterialApi
 @Composable
-fun JunkBottomItem(data: Junk, onPerformClick: () -> Unit) {
+fun JunkBottomItem(name: Int, icon: Int, contentDescription: Int, onPerformClick: () -> Unit) {
     Card(
         shape = RoundedCornerShape(10.dp),
         onClick = onPerformClick,
@@ -276,15 +276,15 @@ fun JunkBottomItem(data: Junk, onPerformClick: () -> Unit) {
         ListItem(
             text = {
                 Text(
-                    text = stringResource(id = data.name),
+                    text = stringResource(id = name),
                     style = MaterialTheme.typography.h4,
                     color = MaterialTheme.colors.onSurface,
                 )
             },
             icon = {
                 Icon(
-                    painter = painterResource(id = data.icon),
-                    contentDescription = stringResource(id = data.iconDescription),
+                    painter = painterResource(id = icon),
+                    contentDescription = stringResource(id = contentDescription),
                     modifier = Modifier.size(64.dp)
                 )
             }
