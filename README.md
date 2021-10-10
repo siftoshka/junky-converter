@@ -8,7 +8,7 @@ Use the latest version of Android Studio (<a href="https://developer.android.com
 ```
 MIT License
 
-Copyright (c) 2019 Azad Mamiyev (@siftoshka)
+Copyright (c) 2021 Azad Mamiyev (@siftoshka)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
