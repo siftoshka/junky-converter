@@ -1,6 +1,5 @@
 package az.siftoshka.junkyconverter.screens.intro
 
-import az.siftoshka.junkyconverter.Screen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -31,8 +30,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import az.siftoshka.junkyconverter.R
+import az.siftoshka.junkyconverter.Screen
 import az.siftoshka.junkyconverter.SharedViewModel
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
+import az.siftoshka.junkyconverter.ui.theme.Padding
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 /**
@@ -63,7 +64,7 @@ fun IntroScreen(
                         }
                     },
                     modifier = Modifier
-                        .padding(16.dp)
+                        .padding(Padding.Default)
                         .width(186.dp)
                         .height(48.dp),
                     shape = RoundedCornerShape(50.dp),
@@ -88,14 +89,14 @@ fun IntroductionCard() {
         modifier = Modifier
             .height(700.dp)
             .fillMaxWidth(),
-        shape = RoundedCornerShape(60.dp).copy(topStart = ZeroCornerSize, topEnd = ZeroCornerSize)
+        shape = RoundedCornerShape(50.dp).copy(topStart = ZeroCornerSize, topEnd = ZeroCornerSize)
     ) {
         Column(
             modifier = Modifier
-                .padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center
+                .padding(Padding.Default), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center
         ) {
             Image(
-                painterResource(id = R.drawable.ic_launcher_foreground),
+                painterResource(id = R.drawable.ic_intro),
                 contentDescription = stringResource(id = R.string.img_desc_logo),
                 Modifier.size(300.dp)
             )

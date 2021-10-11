@@ -47,6 +47,7 @@ import androidx.navigation.compose.rememberNavController
 import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.Screen
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
+import az.siftoshka.junkyconverter.ui.theme.Padding
 import az.siftoshka.junkyconverter.utils.Constants
 import az.siftoshka.junkyconverter.utils.moneyFormat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -94,7 +95,7 @@ fun MainScreen(
         ) {
             Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxSize()) {
                 Column(
-                    modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.Start
+                    modifier = Modifier.padding(Padding.Default), horizontalAlignment = Alignment.Start
                 ) {
                     Text(
                         text = stringResource(id = R.string.text_junky),
@@ -117,7 +118,7 @@ fun MainScreen(
                     Options(navController)
                     LazyVerticalGrid(
                         cells = GridCells.Fixed(3),
-                        modifier = Modifier.padding(12.dp)
+                        modifier = Modifier.padding(Padding.Smaller)
                     ) {
                         items(Constants.numPadNumbers.count()) { index ->
                             NumPadItem(Constants.numPadNumbers[index]) {
@@ -135,7 +136,7 @@ fun MainScreen(
 fun Converter(name: Int, viewModel: MainViewModel) {
     Row(
         modifier = Modifier
-            .padding(16.dp)
+            .padding(Padding.Default)
             .offset(y = 256.dp),
         horizontalArrangement = Arrangement.Center,
     ) {
@@ -182,7 +183,7 @@ fun ChangeJunkButton(onPerformClick: () -> Unit) {
     OutlinedButton(
         onClick = onPerformClick,
         modifier = Modifier
-            .padding(16.dp)
+            .padding(Padding.Default)
             .width(164.dp),
         shape = RoundedCornerShape(20.dp),
         border = BorderStroke(1.dp, MaterialTheme.colors.primary),
@@ -204,12 +205,12 @@ fun ChangeJunkButton(onPerformClick: () -> Unit) {
 fun Options(navController: NavController) {
     Divider(color = MaterialTheme.colors.onBackground, thickness = 1.dp)
     Row(
-        modifier = Modifier.padding(4.dp),
+        modifier = Modifier.padding(Padding.Smallest),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
         Card(
-            shape = RoundedCornerShape(10.dp),
+            shape = MaterialTheme.shapes.large,
             modifier = Modifier.weight(1f),
             onClick = { navController.navigate(Screen.JunksTuning.route) },
             backgroundColor = MaterialTheme.colors.background,
@@ -219,12 +220,12 @@ fun Options(navController: NavController) {
                 text = stringResource(id = R.string.menu_text_junks_tuning),
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.onBackground,
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(Padding.Default),
                 textAlign = TextAlign.Center
             )
         }
         Card(
-            shape = RoundedCornerShape(10.dp),
+            shape = MaterialTheme.shapes.large,
             modifier = Modifier.weight(1f),
             onClick = { navController.navigate(Screen.SettingsScreen.route) },
             backgroundColor = MaterialTheme.colors.background,
@@ -234,7 +235,7 @@ fun Options(navController: NavController) {
                 text = stringResource(id = R.string.menu_text_settings),
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.onBackground,
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(Padding.Default),
                 textAlign = TextAlign.Center
             )
         }
@@ -246,8 +247,8 @@ fun Options(navController: NavController) {
 fun NumPadItem(data: String, onPerformClick: () -> Unit) {
     OutlinedButton(
         onClick = onPerformClick,
-        modifier = Modifier.padding(4.dp),
-        shape = RoundedCornerShape(10.dp),
+        modifier = Modifier.padding(Padding.Smallest),
+        shape = MaterialTheme.shapes.large,
         border = BorderStroke(1.dp, Color.Transparent),
         colors = ButtonDefaults.outlinedButtonColors(
             backgroundColor = Color.Transparent,
@@ -258,7 +259,7 @@ fun NumPadItem(data: String, onPerformClick: () -> Unit) {
             text = data,
             style = MaterialTheme.typography.h4,
             color = MaterialTheme.colors.onBackground,
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(Padding.Small)
         )
     }
 }
@@ -267,11 +268,11 @@ fun NumPadItem(data: String, onPerformClick: () -> Unit) {
 @Composable
 fun JunkBottomItem(name: Int, icon: Int, contentDescription: Int, onPerformClick: () -> Unit) {
     Card(
-        shape = RoundedCornerShape(10.dp),
+        shape = MaterialTheme.shapes.large,
         onClick = onPerformClick,
         backgroundColor = MaterialTheme.colors.surface,
         elevation = 0.dp,
-        modifier = Modifier.padding(4.dp)
+        modifier = Modifier.padding(Padding.Smallest)
     ) {
         ListItem(
             text = {
