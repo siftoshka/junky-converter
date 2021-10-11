@@ -1,6 +1,6 @@
 package az.siftoshka.junkyconverter.screens.main.usecase
 
-import az.siftoshka.junkyconverter.utils.SharedPrefManager
+import az.siftoshka.junkyconverter.data.SharedPrefManager
 import javax.inject.Inject
 
 /**

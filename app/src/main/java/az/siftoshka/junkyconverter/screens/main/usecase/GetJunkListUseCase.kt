@@ -3,7 +3,7 @@ package az.siftoshka.junkyconverter.screens.main.usecase
 import az.siftoshka.junkyconverter.data.JunkRepository
 import az.siftoshka.junkyconverter.data.model.Junk
 import az.siftoshka.junkyconverter.utils.Resource
-import az.siftoshka.junkyconverter.utils.SharedPrefManager
+import az.siftoshka.junkyconverter.data.SharedPrefManager
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -19,7 +19,7 @@ class GetJunkListUseCase @Inject constructor(
     operator fun invoke(): Flow<Resource<List<Junk>>> = flow {
         try {
             emit(Resource.Loading())
-            val junks = repository.getAllJunksByName()
+            val junks = repository.getAllJunks()
             emit(Resource.Success(junks))
         } catch (e: Exception) {
             emit(Resource.Error<List<Junk>>(""))

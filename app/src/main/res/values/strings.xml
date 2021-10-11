@@ -23,6 +23,8 @@
     <string name="item_chips">Chips</string>
     <string name="item_donuts">Donuts</string>
     <string name="item_tacos">Tacos</string>
+    <string name="item_fried_chickens">Fried chickens</string>
+    <string name="item_nuggets">Nuggets</string>
 
     <!--Item names-->
     <string name="img_desc_item_burgers">The icon of burgers</string>
@@ -32,4 +34,6 @@
     <string name="img_desc_item_chips">The icon of chips</string>
     <string name="img_desc_item_donuts">The icon of donuts</string>
     <string name="img_desc_item_tacos">The icon of tacos</string>
+    <string name="img_desc_item_fried_chickens">The icon of fried chickens</string>
+    <string name="img_desc_item_nuggets">The icon of nuggets</string>
 </resources>

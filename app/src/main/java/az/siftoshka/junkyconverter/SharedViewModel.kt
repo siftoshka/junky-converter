@@ -3,7 +3,7 @@ package az.siftoshka.junkyconverter
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import az.siftoshka.junkyconverter.data.JunkRepository
-import az.siftoshka.junkyconverter.utils.SharedPrefManager
+import az.siftoshka.junkyconverter.data.SharedPrefManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

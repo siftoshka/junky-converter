@@ -1,4 +1,4 @@
-package az.siftoshka.junkyconverter.utils
+package az.siftoshka.junkyconverter.data
 
 import android.content.SharedPreferences
 import androidx.core.content.edit
