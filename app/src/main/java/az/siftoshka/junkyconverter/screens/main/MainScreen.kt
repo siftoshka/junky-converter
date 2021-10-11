@@ -141,7 +141,9 @@ fun Converter(name: Int, viewModel: MainViewModel) {
         horizontalArrangement = Arrangement.Center,
     ) {
         Column(
-            modifier = Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier
+                .weight(1f)
+                .padding(horizontal = Padding.Smallest), horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = stringResource(id = R.string.text_your_money),
@@ -158,7 +160,9 @@ fun Converter(name: Int, viewModel: MainViewModel) {
             )
         }
         Column(
-            modifier = Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier
+                .weight(1f)
+                .padding(horizontal = Padding.Smallest), horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = stringResource(id = name),
@@ -211,7 +215,9 @@ fun Options(navController: NavController) {
     ) {
         Card(
             shape = MaterialTheme.shapes.large,
-            modifier = Modifier.weight(1f),
+            modifier = Modifier
+                .weight(1f)
+                .padding(horizontal = Padding.Smallest),
             onClick = { navController.navigate(Screen.JunksTuning.route) },
             backgroundColor = MaterialTheme.colors.background,
             elevation = 0.dp
@@ -226,7 +232,9 @@ fun Options(navController: NavController) {
         }
         Card(
             shape = MaterialTheme.shapes.large,
-            modifier = Modifier.weight(1f),
+            modifier = Modifier
+                .weight(1f)
+                .padding(horizontal = Padding.Smallest),
             onClick = { navController.navigate(Screen.SettingsScreen.route) },
             backgroundColor = MaterialTheme.colors.background,
             elevation = 0.dp
