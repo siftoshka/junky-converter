@@ -244,9 +244,9 @@ fun Options(navController: NavController) {
 }
 
 @Composable
-fun NumPadItem(data: String, onPerformClick: () -> Unit) {
+fun NumPadItem(data: String, performClick: () -> Unit) {
     OutlinedButton(
-        onClick = onPerformClick,
+        onClick = performClick,
         modifier = Modifier.padding(Padding.Smallest),
         shape = MaterialTheme.shapes.large,
         border = BorderStroke(1.dp, Color.Transparent),
@@ -266,10 +266,10 @@ fun NumPadItem(data: String, onPerformClick: () -> Unit) {
 
 @ExperimentalMaterialApi
 @Composable
-fun JunkBottomItem(name: Int, icon: Int, contentDescription: Int, onPerformClick: () -> Unit) {
+fun JunkBottomItem(name: Int, icon: Int, contentDescription: Int, performClick: () -> Unit) {
     Card(
         shape = MaterialTheme.shapes.large,
-        onClick = onPerformClick,
+        onClick = performClick,
         backgroundColor = MaterialTheme.colors.surface,
         elevation = 0.dp,
         modifier = Modifier.padding(Padding.Smallest)

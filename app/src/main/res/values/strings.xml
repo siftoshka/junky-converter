@@ -3,7 +3,7 @@
 
     <!--Introduction Screen-->
     <string name="app_name_introduction">Junky\nConverter</string>
-    <string name="app_description">Convert your money to the number of junky food. You are able to make your personal prices for each food. \nIt is absolutely free and enjoyable application! \You should try! </string>
+    <string name="app_description">Convert your money to the number of junky food. You are able to make your personal prices for each food. \nIt is absolutely free and enjoyable application! \nYou should try! </string>
     <string name="btn_intro">I am interested :)</string>
     <string name="img_desc_logo">The logo of the app.</string>
 

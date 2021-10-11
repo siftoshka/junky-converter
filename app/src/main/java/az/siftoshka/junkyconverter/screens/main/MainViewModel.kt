@@ -26,19 +26,21 @@ class MainViewModel @Inject constructor(
     private val setJunkUseCase: SetJunkUseCase
 ) : ViewModel() {
 
+    private val moneyBuilder = StringBuilder()
+    private var maxLength: Int = 4
+    private val zero = "0"
+
     private val _junkState = mutableStateOf(SelectedJunkState())
     val junkState: State<SelectedJunkState> = _junkState
 
     private val _junksState = mutableStateOf(JunkListState())
     val junksState: State<JunkListState> = _junksState
 
-    var yourMoney: String by mutableStateOf("0")
+    var yourMoney: String by mutableStateOf(zero)
         private set
 
-    var junkMoney: String by mutableStateOf("0")
+    var junkMoney: String by mutableStateOf(zero)
         private set
-
-    private val moneyBuilder = StringBuilder()
 
     init {
         getSelectedJunk()
@@ -84,23 +86,29 @@ class MainViewModel @Inject constructor(
     fun computeYourMoney(value: String) {
         when (value) {
             "←" -> {
+                if (moneyBuilder.contains(".")) {
+                    moneyBuilder.deleteRange(moneyBuilder.lastIndex - 2, moneyBuilder.lastIndex)
+                    yourMoney = moneyBuilder.toString()
+                    maxLength = 4
+                }
                 if (moneyBuilder.isNotEmpty()) {
                     moneyBuilder.deleteCharAt(moneyBuilder.lastIndex)
                     yourMoney = moneyBuilder.toString()
                 }
                 if (moneyBuilder.isEmpty()) {
                     moneyBuilder.clear()
-                    yourMoney = "0"
+                    yourMoney = zero
                 }
             }
             "." -> {
-                if (moneyBuilder.isNotEmpty() && yourMoney != "0") {
+                if (moneyBuilder.isNotEmpty() && yourMoney != zero) {
                     moneyBuilder.append(value)
                     yourMoney = moneyBuilder.toString()
+                    maxLength += 3
                 }
             }
             else -> {
-                if (moneyBuilder.length <= 4 && !moneyBuilder.contains(".##")) {
+                if (moneyBuilder.length <= maxLength && !moneyBuilder.contains(".##")) {
                     moneyBuilder.append(value)
                     yourMoney = moneyBuilder.toString()
                 }
@@ -110,28 +118,29 @@ class MainViewModel @Inject constructor(
     }
 
     private fun computeJunkMoney() {
-        junkMoney = if (yourMoney != "0") {
+        junkMoney = if (yourMoney != zero) {
             yourMoney.toFloat().times(_junkState.value.junk?.value ?: 1f).toString()
-        } else "0"
+        } else zero
     }
 
     fun setJunk(junk: Junk) {
         setJunkUseCase(junk.id)
         _junkState.value = SelectedJunkState(junk = junk)
+        maxLength = 4
         moneyBuilder.clear()
-        yourMoney = "0"
-        junkMoney = "0"
+        yourMoney = zero
+        junkMoney = zero
     }
 }
 
 data class SelectedJunkState(
     val isLoading: Boolean = false,
     val junk: Junk? = null,
-    val error: String = ""
+    val error: String = String()
 )
 
 data class JunkListState(
     val isLoading: Boolean = false,
     val junks: List<Junk>? = null,
-    val error: String = ""
+    val error: String = String()
 )
