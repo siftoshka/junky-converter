@@ -27,7 +27,7 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val moneyBuilder = StringBuilder()
-    private var maxLength: Int = 4
+    private var maxLength: Int = 3
     private val zero = "0"
 
     private val _junkState = mutableStateOf(SelectedJunkState())
@@ -86,10 +86,10 @@ class MainViewModel @Inject constructor(
     fun computeYourMoney(value: String) {
         when (value) {
             "←" -> {
-                if (moneyBuilder.contains(".")) {
-                    moneyBuilder.deleteRange(moneyBuilder.lastIndex - 2, moneyBuilder.lastIndex)
-                    yourMoney = moneyBuilder.toString()
-                    maxLength = 4
+                if (moneyBuilder.length > 1) {
+                    if (moneyBuilder[moneyBuilder.length - 1] == '.') {
+                        maxLength = 4
+                    }
                 }
                 if (moneyBuilder.isNotEmpty()) {
                     moneyBuilder.deleteCharAt(moneyBuilder.lastIndex)
@@ -104,11 +104,11 @@ class MainViewModel @Inject constructor(
                 if (moneyBuilder.isNotEmpty() && yourMoney != zero) {
                     moneyBuilder.append(value)
                     yourMoney = moneyBuilder.toString()
-                    maxLength += 3
+                    maxLength = moneyBuilder.length + 1
                 }
             }
             else -> {
-                if (moneyBuilder.length <= maxLength && !moneyBuilder.contains(".##")) {
+                if (moneyBuilder.length <= maxLength) {
                     moneyBuilder.append(value)
                     yourMoney = moneyBuilder.toString()
                 }
