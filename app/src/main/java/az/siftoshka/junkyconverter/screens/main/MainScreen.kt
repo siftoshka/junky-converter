@@ -109,7 +109,7 @@ fun MainScreen(
                         color = MaterialTheme.colors.onBackground,
                     )
                 }
-                state.junk?.let { Converter(it.name, viewModel) }
+                state.junk?.let { Converter(it.name) }
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Bottom
@@ -133,7 +133,7 @@ fun MainScreen(
 }
 
 @Composable
-fun Converter(name: Int, viewModel: MainViewModel) {
+fun Converter(name: Int, viewModel: MainViewModel = hiltViewModel()) {
     Row(
         modifier = Modifier
             .padding(Padding.Default)
@@ -147,7 +147,7 @@ fun Converter(name: Int, viewModel: MainViewModel) {
         ) {
             Text(
                 text = stringResource(id = R.string.text_your_money),
-                style = MaterialTheme.typography.h4,
+                style = MaterialTheme.typography.h3,
                 color = MaterialTheme.colors.onBackground
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -155,7 +155,7 @@ fun Converter(name: Int, viewModel: MainViewModel) {
                 text = viewModel.yourMoney.moneyFormat(),
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.primary,
-                fontSize = 36.sp,
+                fontSize = 32.sp,
                 maxLines = 1
             )
         }
@@ -166,7 +166,7 @@ fun Converter(name: Int, viewModel: MainViewModel) {
         ) {
             Text(
                 text = stringResource(id = name),
-                style = MaterialTheme.typography.h4,
+                style = MaterialTheme.typography.h3,
                 color = MaterialTheme.colors.onBackground
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -174,7 +174,7 @@ fun Converter(name: Int, viewModel: MainViewModel) {
                 text = viewModel.junkMoney.moneyFormat(),
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.onSurface,
-                fontSize = 36.sp,
+                fontSize = 32.sp,
                 maxLines = 1
             )
         }

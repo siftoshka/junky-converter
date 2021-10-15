@@ -85,7 +85,7 @@ class MainViewModel @Inject constructor(
 
     fun computeYourMoney(value: String) {
         when (value) {
-            "←" -> {
+            "❮" -> {
                 if (moneyBuilder.length > 1) {
                     if (moneyBuilder[moneyBuilder.length - 1] == '.') {
                         maxLength = 4
