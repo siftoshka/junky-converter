@@ -1,21 +1,24 @@
 <resources>
     <string name="app_name">Junky Converter</string>
 
-    <!--Introduction Screen-->
+    <!-- Introduction Screen -->
     <string name="app_name_introduction">Junky\nConverter</string>
-    <string name="app_description">Convert your money to the number of junky food. You are able to make your personal prices for each food. \nIt is absolutely free and enjoyable application! \nYou should try! </string>
+    <string name="app_description">Convert your money to the number of junky food. You are able to make your personal prices for each food. \n\nIt is absolutely free and enjoyable application! \nYou should try it now! </string>
     <string name="btn_intro">I am interested :)</string>
     <string name="img_desc_logo">The logo of the app.</string>
 
-    <!--Main Screen-->
+    <!-- Main Screen -->
     <string name="text_junky">Junky</string>
     <string name="text_converter">Converter</string>
     <string name="text_your_money">Your money</string>
     <string name="text_change_junk">Change junk</string>
     <string name="menu_text_junks_tuning">Junks Tuning</string>
     <string name="menu_text_settings">Settings</string>
+
+    <!-- Junk Settings Screen -->
+    <string name="junk_settings_title">Junk Tuning</string>
     
-    <!--Item names-->
+    <!-- Item names -->
     <string name="item_burgers">Burgers</string>
     <string name="item_pizzas">Pizzas</string>
     <string name="item_kebabs">Kebabs</string>
@@ -26,7 +29,7 @@
     <string name="item_fried_chickens">Fried chickens</string>
     <string name="item_nuggets">Nuggets</string>
 
-    <!--Item names-->
+    <!-- Item names -->
     <string name="img_desc_item_burgers">The icon of burgers</string>
     <string name="img_desc_item_pizzas">The icon of pizzas</string>
     <string name="img_desc_item_kebabs">The icon of kebabs</string>
@@ -36,4 +39,7 @@
     <string name="img_desc_item_tacos">The icon of tacos</string>
     <string name="img_desc_item_fried_chickens">The icon of fried chickens</string>
     <string name="img_desc_item_nuggets">The icon of nuggets</string>
+
+    <!-- Icons description -->
+    <string name="ic_desc_back">Back button</string>
 </resources>

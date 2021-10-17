@@ -1,5 +1,7 @@
 package az.siftoshka.junkyconverter.screens.main
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -38,12 +40,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.Screen
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
@@ -133,7 +133,10 @@ fun MainScreen(
 }
 
 @Composable
-fun Converter(name: Int, viewModel: MainViewModel = hiltViewModel()) {
+fun Converter(
+    @StringRes name: Int,
+    viewModel: MainViewModel = hiltViewModel()
+) {
     Row(
         modifier = Modifier
             .padding(Padding.Default)
@@ -206,7 +209,10 @@ fun ChangeJunkButton(onPerformClick: () -> Unit) {
 
 @ExperimentalMaterialApi
 @Composable
-fun Options(navController: NavController) {
+fun Options(
+    navController: NavController,
+    viewModel: MainViewModel = hiltViewModel()
+) {
     Divider(color = MaterialTheme.colors.onBackground, thickness = 1.dp)
     Row(
         modifier = Modifier.padding(Padding.Smallest),
@@ -218,9 +224,12 @@ fun Options(navController: NavController) {
             modifier = Modifier
                 .weight(1f)
                 .padding(horizontal = Padding.Smallest),
-            onClick = { navController.navigate(Screen.JunksTuning.route) },
             backgroundColor = MaterialTheme.colors.background,
-            elevation = 0.dp
+            elevation = 0.dp,
+            onClick = {
+                viewModel.clearData()
+                navController.navigate(Screen.JunksTuning.route)
+            }
         ) {
             Text(
                 text = stringResource(id = R.string.menu_text_junks_tuning),
@@ -235,9 +244,12 @@ fun Options(navController: NavController) {
             modifier = Modifier
                 .weight(1f)
                 .padding(horizontal = Padding.Smallest),
-            onClick = { navController.navigate(Screen.SettingsScreen.route) },
             backgroundColor = MaterialTheme.colors.background,
-            elevation = 0.dp
+            elevation = 0.dp,
+            onClick = {
+                viewModel.clearData()
+                navController.navigate(Screen.SettingsScreen.route)
+            },
         ) {
             Text(
                 text = stringResource(id = R.string.menu_text_settings),
@@ -252,7 +264,10 @@ fun Options(navController: NavController) {
 }
 
 @Composable
-fun NumPadItem(data: String, performClick: () -> Unit) {
+fun NumPadItem(
+    data: String,
+    performClick: () -> Unit
+) {
     OutlinedButton(
         onClick = performClick,
         modifier = Modifier.padding(Padding.Smallest),
@@ -274,7 +289,12 @@ fun NumPadItem(data: String, performClick: () -> Unit) {
 
 @ExperimentalMaterialApi
 @Composable
-fun JunkBottomItem(name: Int, icon: Int, contentDescription: Int, performClick: () -> Unit) {
+fun JunkBottomItem(
+    @StringRes name: Int,
+    @DrawableRes icon: Int,
+    @StringRes contentDescription: Int,
+    performClick: () -> Unit
+) {
     Card(
         shape = MaterialTheme.shapes.large,
         onClick = performClick,
@@ -299,13 +319,4 @@ fun JunkBottomItem(name: Int, icon: Int, contentDescription: Int, performClick: 
             }
         )
     }
-}
-
-@ExperimentalFoundationApi
-@ExperimentalMaterialApi
-@Preview
-@Composable
-fun MainScreenPreview() {
-
-    MainScreen(rememberNavController())
 }

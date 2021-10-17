@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
                         composable(
                             route = Screen.JunksTuning.route
                         ) {
-                            JunkSettingsScreen()
+                            JunkSettingsScreen(navController)
                         }
                     }
                 }

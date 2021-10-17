@@ -1,4 +1,4 @@
-package az.siftoshka.junkyconverter.screens.main.usecase
+package az.siftoshka.junkyconverter.usecases
 
 import az.siftoshka.junkyconverter.data.JunkRepository
 import az.siftoshka.junkyconverter.data.model.Junk

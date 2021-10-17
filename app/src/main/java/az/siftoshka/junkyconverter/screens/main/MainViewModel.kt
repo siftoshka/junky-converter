@@ -7,9 +7,9 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import az.siftoshka.junkyconverter.data.model.Junk
-import az.siftoshka.junkyconverter.screens.main.usecase.GetJunkListUseCase
-import az.siftoshka.junkyconverter.screens.main.usecase.GetJunkUseCase
-import az.siftoshka.junkyconverter.screens.main.usecase.SetJunkUseCase
+import az.siftoshka.junkyconverter.usecases.GetJunkListUseCase
+import az.siftoshka.junkyconverter.usecases.GetJunkUseCase
+import az.siftoshka.junkyconverter.usecases.SetJunkUseCase
 import az.siftoshka.junkyconverter.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -126,6 +126,10 @@ class MainViewModel @Inject constructor(
     fun setJunk(junk: Junk) {
         setJunkUseCase(junk.id)
         _junkState.value = SelectedJunkState(junk = junk)
+        clearData()
+    }
+
+    fun clearData() {
         maxLength = 4
         moneyBuilder.clear()
         yourMoney = zero

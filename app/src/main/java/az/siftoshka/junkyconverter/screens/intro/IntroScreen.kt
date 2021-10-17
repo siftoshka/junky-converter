@@ -24,11 +24,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.Screen
 import az.siftoshka.junkyconverter.SharedViewModel
@@ -58,7 +57,7 @@ fun IntroScreen(
             ) {
                 Button(
                     onClick = {
-                        //viewModel.setIntroShown(true)
+                        viewModel.setIntroShown(true)
                         navController.navigate(Screen.MainScreen.route) {
                             popUpTo(Screen.IntroScreen.route) { inclusive = true }
                         }
@@ -111,7 +110,9 @@ fun IntroductionCard() {
                 text = stringResource(id = R.string.app_description),
                 style = MaterialTheme.typography.body1,
                 color = MaterialTheme.colors.onSurface,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                fontSize = 18.sp,
+                modifier = Modifier.padding(horizontal = Padding.Smallest)
             )
             Spacer(modifier = Modifier.height(48.dp))
             Text(
@@ -122,10 +123,4 @@ fun IntroductionCard() {
             )
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun IntroScreenPreview() {
-    IntroScreen(rememberNavController())
 }
