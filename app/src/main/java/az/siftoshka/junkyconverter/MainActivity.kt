@@ -15,6 +15,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.ui.ExperimentalComposeUiApi
 import az.siftoshka.junkyconverter.screens.intro.IntroScreen
 import az.siftoshka.junkyconverter.screens.junksetting.JunkSettingsScreen
 import az.siftoshka.junkyconverter.screens.main.MainScreen
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: SharedViewModel by viewModels()
 
+    @ExperimentalComposeUiApi
     @ExperimentalAnimationApi
     @ExperimentalFoundationApi
     @ExperimentalMaterialApi

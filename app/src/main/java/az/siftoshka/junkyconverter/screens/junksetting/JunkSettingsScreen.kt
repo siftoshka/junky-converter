@@ -77,8 +77,7 @@ fun JunkSettingsScreen(
                         listState.junks?.let { junks ->
                             items(junks.size) {
                                 val junk = junks[it]
-                                JunkItem(junk) {
-                                }
+                                JunkItem(junk)
                             }
                         }
                     }
@@ -93,16 +92,14 @@ fun JunkSettingsScreen(
 fun JunkItem(
     junk: Junk,
     viewModel: JunkSettingsViewModel = hiltViewModel(),
-    performClick: () -> Unit
 ) {
+    var value by remember { mutableStateOf(junk.value.toString()) }
+
     Card(
         shape = MaterialTheme.shapes.large,
-        onClick = performClick,
         backgroundColor = Color.Transparent,
         elevation = 0.dp,
     ) {
-        var value by remember { mutableStateOf(junk.value.toString()) }
-
         Row(
             modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically
         ) {
@@ -121,10 +118,16 @@ fun JunkItem(
                 value = value,
                 modifier = Modifier.width(100.dp),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                shape = RoundedCornerShape(10.dp),
+                shape = MaterialTheme.shapes.large,
                 onValueChange = {
-                    value = it
-                    viewModel.updateJunk(junk, it.toFloatOrNull())
+                    val maxDigits = when (it.contains('.')) {
+                        true -> 6
+                        false -> 5
+                    }
+                    if (it.length <= maxDigits) {
+                        value = it
+                        viewModel.updateJunk(junk, it.toFloatOrNull())
+                    }
                 }
             )
         }
