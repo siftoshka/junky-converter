@@ -25,6 +25,8 @@ class JunkSettingsViewModel @Inject constructor(
     private val _junksState = mutableStateOf(JunkListState())
     val junksState: State<JunkListState> = _junksState
 
+    var junkItem: Junk? = null
+
     init {
         getAllJunks()
     }
@@ -49,10 +51,9 @@ class JunkSettingsViewModel @Inject constructor(
 
     fun updateJunk(junk: Junk, value: Float?) {
         if (value != null && value > 0) {
-            println(value)
-            updateJunkUseCase(
-                Junk(junk.id, junk.name, value, junk.icon, junk.iconDescription)
-            ).launchIn(viewModelScope)
+            val updatedJunk = Junk(junk.id, junk.name, value, junk.icon, junk.iconDescription)
+            junkItem = updatedJunk
+            updateJunkUseCase(updatedJunk).launchIn(viewModelScope)
         }
     }
 }

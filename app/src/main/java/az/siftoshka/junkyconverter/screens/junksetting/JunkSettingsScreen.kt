@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
@@ -39,6 +38,7 @@ import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.data.model.Junk
 import az.siftoshka.junkyconverter.screens.components.JunkyTopAppBar
+import az.siftoshka.junkyconverter.screens.main.MainViewModel
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
 import az.siftoshka.junkyconverter.ui.theme.Padding
 
@@ -50,7 +50,8 @@ import az.siftoshka.junkyconverter.ui.theme.Padding
 @Composable
 fun JunkSettingsScreen(
     navController: NavController,
-    viewModel: JunkSettingsViewModel = hiltViewModel()
+    viewModel: JunkSettingsViewModel = hiltViewModel(),
+    mainViewModel: MainViewModel = hiltViewModel()
 ) {
 
     val listState = viewModel.junksState.value
@@ -65,6 +66,7 @@ fun JunkSettingsScreen(
                     contentDescription = R.string.ic_desc_back
                 ) {
                     keyboardController?.hide()
+                    viewModel.junkItem?.let { mainViewModel.setJunk(it) }
                     navController.popBackStack()
                 }
                 Spacer(modifier = Modifier.height(16.dp))
@@ -116,7 +118,9 @@ fun JunkItem(
             )
             OutlinedTextField(
                 value = value,
-                modifier = Modifier.width(100.dp),
+                modifier = Modifier
+                    .width(100.dp)
+                    .height(48.dp),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 shape = MaterialTheme.shapes.large,
                 onValueChange = {
