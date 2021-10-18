@@ -42,4 +42,8 @@
 
     <!-- Icons description -->
     <string name="ic_desc_back">Back button</string>
+
+    <!-- Messages & Tips -->
+    <string name="tip_how_to_use">How to use?</string>
+    <string name="tip_how_to_use_long">Here you can edit values of each junk food. \nFor example 2.5 Burgers will show that you can buy by 1 of your own money. \n\n 1 Your money = 2.5 Burgers.</string>
 </resources>

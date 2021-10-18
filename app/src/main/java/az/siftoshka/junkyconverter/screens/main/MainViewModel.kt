@@ -1,6 +1,6 @@
 package az.siftoshka.junkyconverter.screens.main
 
-import androidx.compose.runtime.State
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -31,10 +31,10 @@ class MainViewModel @Inject constructor(
     private val zero = "0"
 
     private val _junkState = mutableStateOf(SelectedJunkState())
-    val junkState: State<SelectedJunkState> = _junkState
+    val junkState: MutableState<SelectedJunkState> = _junkState
 
     private val _junksState = mutableStateOf(JunkListState())
-    val junksState: State<JunkListState> = _junksState
+    val junksState: MutableState<JunkListState> = _junksState
 
     var yourMoney: String by mutableStateOf(zero)
         private set

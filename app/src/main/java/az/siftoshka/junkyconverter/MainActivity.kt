@@ -5,12 +5,12 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.core.FastOutLinearInEasing
+import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
@@ -51,13 +51,15 @@ class MainActivity : AppCompatActivity() {
                         composable(
                             route = Screen.IntroScreen.route,
                             exitTransition = { _, _ ->
-                                slideOutVertically(
-                                    { -300 }, tween(300, easing = FastOutLinearInEasing)
+                                slideOutHorizontally(
+                                    targetOffsetX = { -300 },
+                                    animationSpec = tween(600, easing = FastOutSlowInEasing)
                                 ) + fadeOut(animationSpec = tween(600))
                             },
                             popEnterTransition = { _, _ ->
-                                slideInVertically(
-                                    { -300 }, tween(300, easing = FastOutLinearInEasing)
+                                slideInHorizontally(
+                                    initialOffsetX = { -300 },
+                                    animationSpec = tween(600, easing = FastOutSlowInEasing)
                                 ) + fadeIn(animationSpec = tween(600))
                             }
                         ) {
@@ -65,27 +67,41 @@ class MainActivity : AppCompatActivity() {
                             else IntroScreen(navController)
                         }
                         composable(
-                            route = Screen.MainScreen.route,
-                            enterTransition = { _, _ ->
-                                slideInVertically(
-                                    { 300 }, tween(300, easing = FastOutLinearInEasing)
-                                ) + fadeIn(animationSpec = tween(600))
-                            },
-                            popExitTransition = { _, _ ->
-                                slideOutVertically(
-                                    { 300 }, tween(300, easing = FastOutLinearInEasing)
-                                ) + fadeOut(animationSpec = tween(600))
-                            }
+                            route = Screen.MainScreen.route
                         ) {
                             MainScreen(navController)
                         }
                         composable(
-                            route = Screen.SettingsScreen.route
+                            route = Screen.SettingsScreen.route,
+                            enterTransition = { _, _ ->
+                                slideInHorizontally(
+                                    initialOffsetX = { 300 },
+                                    animationSpec = tween(600, easing = FastOutSlowInEasing)
+                                ) + fadeIn(animationSpec = tween(600))
+                            },
+                            popExitTransition = { _, _ ->
+                                slideOutHorizontally(
+                                    targetOffsetX = { 300 },
+                                    animationSpec = tween(600, easing = FastOutSlowInEasing)
+                                ) + fadeOut(animationSpec = tween(600))
+                            }
                         ) {
                             SettingsScreen()
                         }
                         composable(
-                            route = Screen.JunksTuning.route
+                            route = Screen.JunksTuning.route,
+                            enterTransition = { _, _ ->
+                                slideInHorizontally(
+                                    initialOffsetX = { 300 },
+                                    animationSpec = tween(600, easing = FastOutSlowInEasing)
+                                ) + fadeIn(animationSpec = tween(600))
+                            },
+                            popExitTransition = { _, _ ->
+                                slideOutHorizontally(
+                                    targetOffsetX = { 300 },
+                                    animationSpec = tween(600, easing = FastOutSlowInEasing)
+                                ) + fadeOut(animationSpec = tween(600))
+                            }
                         ) {
                             JunkSettingsScreen(navController)
                         }

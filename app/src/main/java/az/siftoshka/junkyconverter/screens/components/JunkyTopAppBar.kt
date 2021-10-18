@@ -29,7 +29,7 @@ fun JunkyTopAppBar(
             Text(
                 text = stringResource(id = title),
                 style = MaterialTheme.typography.h3,
-                color = MaterialTheme.colors.onPrimary,
+                color = MaterialTheme.colors.onBackground,
                 modifier = Modifier
                     .padding(vertical = Padding.Default, horizontal = Padding.Small)
             )

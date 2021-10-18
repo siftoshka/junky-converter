@@ -176,7 +176,7 @@ fun Converter(
             Text(
                 text = viewModel.junkMoney.moneyFormat(),
                 style = MaterialTheme.typography.h4,
-                color = MaterialTheme.colors.onSurface,
+                color = MaterialTheme.colors.onBackground,
                 fontSize = 32.sp,
                 maxLines = 1
             )

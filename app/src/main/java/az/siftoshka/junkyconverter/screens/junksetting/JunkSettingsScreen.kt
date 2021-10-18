@@ -19,6 +19,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -38,6 +39,7 @@ import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.data.model.Junk
 import az.siftoshka.junkyconverter.screens.components.JunkyTopAppBar
+import az.siftoshka.junkyconverter.screens.components.Tip
 import az.siftoshka.junkyconverter.screens.main.MainViewModel
 import az.siftoshka.junkyconverter.ui.theme.JunkyConverterTheme
 import az.siftoshka.junkyconverter.ui.theme.Padding
@@ -68,6 +70,16 @@ fun JunkSettingsScreen(
                     keyboardController?.hide()
                     viewModel.junkItem?.let { mainViewModel.setJunk(it) }
                     navController.popBackStack()
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+                Row(modifier = Modifier
+                    .padding(horizontal = Padding.Default)
+                    .fillMaxWidth()
+                ) {
+                    Tip(
+                        shortText = R.string.tip_how_to_use,
+                        longText = R.string.tip_how_to_use_long
+                    )
                 }
                 Spacer(modifier = Modifier.height(16.dp))
                 Column(
@@ -113,7 +125,7 @@ fun JunkItem(
             Text(
                 text = stringResource(id = junk.name),
                 style = MaterialTheme.typography.h4,
-                color = MaterialTheme.colors.onSurface,
+                color = MaterialTheme.colors.onBackground,
                 modifier = Modifier.weight(1f)
             )
             OutlinedTextField(
@@ -132,7 +144,9 @@ fun JunkItem(
                         value = it
                         viewModel.updateJunk(junk, it.toFloatOrNull())
                     }
-                }
+                },
+                colors = TextFieldDefaults.outlinedTextFieldColors(unfocusedBorderColor = MaterialTheme.colors.onBackground)
+
             )
         }
     }
