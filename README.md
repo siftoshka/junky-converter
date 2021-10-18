@@ -4,6 +4,14 @@ Convert your money to the number of junky food. You are able to make your person
 ### How to compile?
 Use the latest version of Android Studio (<a href="https://developer.android.com/studio">Arctic Fox</a>)
 #
+### How to compile in Eclipse?
+<details>
+<summary>The shortest answer 🚀</summary>
+  
+![](https://media3.giphy.com/media/5xtDarC0XyqmUhD5eDK/giphy.gif?cid=790b761105c7719681cdce16dd101228b007d25f74bc1c98&rid=giphy.gif)
+</details>
+
+#
 ### License
 ```
 MIT License
