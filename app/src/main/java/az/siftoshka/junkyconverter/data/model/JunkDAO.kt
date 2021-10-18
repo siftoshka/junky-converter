@@ -4,7 +4,9 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import az.siftoshka.junkyconverter.utils.Constants
+import az.siftoshka.junkyconverter.domain.model.Junk
+import az.siftoshka.junkyconverter.domain.utils.Constants
+import kotlinx.coroutines.flow.Flow
 
 /**
  * The DAO interface of the [JunkDatabase].
@@ -22,5 +24,5 @@ interface JunkDAO {
     suspend fun getSelectedJunk(id: Int) : Junk
 
     @Query("SELECT * FROM ${Constants.TABLE_NAME} ORDER BY id ASC")
-    suspend fun getAllJunks() : List<Junk>
+    fun getAllJunks() : Flow<List<Junk>>
 }

@@ -13,12 +13,15 @@ android {
         minSdk 23
         targetSdk 31
         versionCode 1
-        versionName "0.3.2"
+        versionName "0.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
         }
+    }
+    applicationVariants.all { variant ->
+        variant.resValue "string", "version_name", variant.versionName + " (" + variant.versionCode + ")"
     }
 
     buildTypes {
