@@ -16,15 +16,15 @@ class JunkRepositoryImpl(
 
     override suspend fun insertInitialJunks() {
         val junks = listOf(
-            Junk(1, R.string.item_burgers, icon = R.drawable.ic_launcher_foreground, iconDescription = R.string.img_desc_item_burgers),
-            Junk(2, R.string.item_pizzas, icon = R.drawable.ic_launcher_foreground, iconDescription = R.string.img_desc_item_pizzas),
-            Junk(3, R.string.item_kebabs, icon = R.drawable.ic_launcher_foreground, iconDescription = R.string.img_desc_item_kebabs),
-            Junk(4, R.string.item_chips, icon = R.drawable.ic_launcher_foreground, iconDescription = R.string.img_desc_item_chips),
-            Junk(5, R.string.item_donuts, icon = R.drawable.ic_launcher_foreground, iconDescription = R.string.img_desc_item_donuts),
-            Junk(6, R.string.item_tacos, icon = R.drawable.ic_launcher_foreground, iconDescription = R.string.img_desc_item_tacos),
-            Junk(7, R.string.item_muffins, icon = R.drawable.ic_launcher_foreground, iconDescription = R.string.img_desc_item_muffins),
-            Junk(8, R.string.item_fried_chickens, icon = R.drawable.ic_launcher_foreground, iconDescription = R.string.img_desc_item_fried_chickens),
-            Junk(9, R.string.item_nuggets, icon = R.drawable.ic_launcher_foreground, iconDescription = R.string.img_desc_item_nuggets)
+            Junk(1, R.string.item_burgers, icon = R.drawable.hamburger, iconDescription = R.string.img_desc_item_burgers),
+            Junk(2, R.string.item_pizzas, icon = R.drawable.pizza, iconDescription = R.string.img_desc_item_pizzas),
+            Junk(3, R.string.item_kebabs, icon = R.drawable.kebab, iconDescription = R.string.img_desc_item_kebabs),
+            Junk(4, R.string.item_chips, icon = R.drawable.chips, iconDescription = R.string.img_desc_item_chips),
+            Junk(5, R.string.item_donuts, icon = R.drawable.doughnut, iconDescription = R.string.img_desc_item_donuts),
+            Junk(6, R.string.item_tacos, icon = R.drawable.taco, iconDescription = R.string.img_desc_item_tacos),
+            Junk(7, R.string.item_muffins, icon = R.drawable.pie, iconDescription = R.string.img_desc_item_muffins),
+            Junk(8, R.string.item_fried_chicken, icon = R.drawable.pan_chicken, iconDescription = R.string.img_desc_item_fried_chicken),
+            Junk(9, R.string.item_nuggets, icon = R.drawable.chicken, iconDescription = R.string.img_desc_item_nuggets)
         )
         junkDAO.insertInitialJunks(junks)
     }

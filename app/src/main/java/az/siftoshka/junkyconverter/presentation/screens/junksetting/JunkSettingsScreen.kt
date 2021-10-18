@@ -1,5 +1,6 @@
 package az.siftoshka.junkyconverter.presentation.screens.junksetting
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -14,7 +15,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Surface
@@ -40,7 +40,6 @@ import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.domain.model.Junk
 import az.siftoshka.junkyconverter.presentation.components.JunkyTopAppBar
 import az.siftoshka.junkyconverter.presentation.components.Tip
-import az.siftoshka.junkyconverter.presentation.screens.main.MainViewModel
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
 import az.siftoshka.junkyconverter.presentation.utils.Padding
 
@@ -83,7 +82,7 @@ fun JunkSettingsScreen(
                 Spacer(modifier = Modifier.height(16.dp))
                 Column(
                     modifier = Modifier
-                        .padding(horizontal = Padding.Default)
+                        .padding(end = Padding.Default)
                         .fillMaxWidth()
                 ) {
                     LazyColumn(modifier = Modifier.defaultMinSize(minHeight = 1.dp)) {
@@ -116,10 +115,12 @@ fun JunkItem(
         Row(
             modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically
         ) {
-            Icon(
+            Image(
                 painter = painterResource(id = junk.icon),
                 contentDescription = stringResource(id = junk.iconDescription),
-                modifier = Modifier.size(64.dp)
+                modifier = Modifier
+                    .size(64.dp)
+                    .padding(vertical = Padding.Default)
             )
             Text(
                 text = stringResource(id = junk.name),

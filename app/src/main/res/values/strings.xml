@@ -26,7 +26,7 @@
     <string name="item_chips">Chips</string>
     <string name="item_donuts">Donuts</string>
     <string name="item_tacos">Tacos</string>
-    <string name="item_fried_chickens">Fried chickens</string>
+    <string name="item_fried_chicken">Fried chicken</string>
     <string name="item_nuggets">Nuggets</string>
 
     <!-- Item names -->
@@ -37,7 +37,7 @@
     <string name="img_desc_item_chips">The icon of chips</string>
     <string name="img_desc_item_donuts">The icon of donuts</string>
     <string name="img_desc_item_tacos">The icon of tacos</string>
-    <string name="img_desc_item_fried_chickens">The icon of fried chickens</string>
+    <string name="img_desc_item_fried_chicken">The icon of fried chicken</string>
     <string name="img_desc_item_nuggets">The icon of nuggets</string>
 
     <!-- Icons description -->
@@ -45,5 +45,5 @@
 
     <!-- Messages & Tips -->
     <string name="tip_how_to_use">How to use?</string>
-    <string name="tip_how_to_use_long">Here you can edit values of each junk food. \nFor example 2.5 Burgers will show that you can buy by 1 of your own money. \n\n 1 Your money = 2.5 Burgers.</string>
+    <string name="tip_how_to_use_long">Here you can edit values of each junk food.\nFor example, 2.5 Burgers will show how many you can buy by "1" of your own money.\n\n1 Your money = 2.5 Burgers.</string>
 </resources>

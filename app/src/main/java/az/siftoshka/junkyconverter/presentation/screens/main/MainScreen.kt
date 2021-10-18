@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,7 +24,6 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
 import androidx.compose.material.Divider
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Icon
 import androidx.compose.material.ListItem
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ModalBottomSheetLayout
@@ -45,11 +45,11 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
-import az.siftoshka.junkyconverter.presentation.utils.Screen
 import az.siftoshka.junkyconverter.domain.utils.Constants
 import az.siftoshka.junkyconverter.domain.utils.moneyFormat
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
 import az.siftoshka.junkyconverter.presentation.utils.Padding
+import az.siftoshka.junkyconverter.presentation.utils.Screen
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.launch
 
@@ -311,10 +311,10 @@ fun JunkBottomItem(
                 )
             },
             icon = {
-                Icon(
+                Image(
                     painter = painterResource(id = icon),
                     contentDescription = stringResource(id = contentDescription),
-                    modifier = Modifier.size(64.dp)
+                    modifier = Modifier.size(40.dp)
                 )
             }
         )

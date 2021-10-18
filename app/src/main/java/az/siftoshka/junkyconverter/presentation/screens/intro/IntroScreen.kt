@@ -104,6 +104,7 @@ fun IntroductionCard() {
                 style = MaterialTheme.typography.h1,
                 color = MaterialTheme.colors.onSurface,
                 textAlign = TextAlign.Center,
+                fontSize = 46.sp
             )
             Spacer(modifier = Modifier.height(32.dp))
             Text(
@@ -111,7 +112,6 @@ fun IntroductionCard() {
                 style = MaterialTheme.typography.body1,
                 color = MaterialTheme.colors.onSurface,
                 textAlign = TextAlign.Center,
-                fontSize = 18.sp,
                 modifier = Modifier.padding(horizontal = Padding.Smallest)
             )
             Spacer(modifier = Modifier.height(48.dp))
