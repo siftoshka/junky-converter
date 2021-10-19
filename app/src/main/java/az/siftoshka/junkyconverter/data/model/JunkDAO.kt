@@ -23,6 +23,6 @@ interface JunkDAO {
     @Query("SELECT * FROM ${Constants.TABLE_NAME} WHERE id = :id")
     suspend fun getSelectedJunk(id: Int) : Junk
 
-    @Query("SELECT * FROM ${Constants.TABLE_NAME} ORDER BY id ASC")
+    @Query("SELECT * FROM ${Constants.TABLE_NAME}")
     fun getAllJunks() : Flow<List<Junk>>
 }

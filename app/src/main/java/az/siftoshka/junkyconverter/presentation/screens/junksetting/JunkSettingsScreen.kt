@@ -82,18 +82,16 @@ fun JunkSettingsScreen(
                         longText = R.string.tip_how_to_use_long
                     )
                 }
-                Spacer(modifier = Modifier.height(16.dp))
-                Column(
+                LazyColumn(
                     modifier = Modifier
+                        .defaultMinSize(minHeight = 1.dp)
                         .padding(end = Padding.Default)
                         .fillMaxWidth()
                 ) {
-                    LazyColumn(modifier = Modifier.defaultMinSize(minHeight = 1.dp)) {
-                        listState.junks?.let { junks ->
-                            items(junks.size) {
-                                val junk = junks[it]
-                                JunkItem(junk, viewModel, keyboardController)
-                            }
+                    listState.junks?.let { junks ->
+                        items(junks.size) {
+                            val junk = junks[it]
+                            JunkItem(junk, viewModel, keyboardController)
                         }
                     }
                 }
@@ -116,6 +114,7 @@ fun JunkItem(
         shape = MaterialTheme.shapes.large,
         backgroundColor = Color.Transparent,
         elevation = 0.dp,
+        modifier = Modifier.padding(bottom = Padding.Smallest)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically
@@ -152,7 +151,6 @@ fun JunkItem(
                     }
                 },
                 colors = TextFieldDefaults.outlinedTextFieldColors(unfocusedBorderColor = MaterialTheme.colors.onBackground)
-
             )
         }
     }

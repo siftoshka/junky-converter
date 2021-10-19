@@ -28,18 +28,28 @@
     <string name="item_donuts">Donuts</string>
     <string name="item_tacos">Tacos</string>
     <string name="item_fried_chicken">Fried chicken</string>
+    <string name="item_burritos">Burritos</string>
     <string name="item_nuggets">Nuggets</string>
+    <string name="item_lollipops">Lollipops</string>
+    <string name="item_candies">Candies</string>
+    <string name="item_cookies">Cookies</string>
+    <string name="item_hot_dogs">Hot dogs</string>
 
     <!-- Item names -->
-    <string name="img_desc_item_burgers">The icon of burgers</string>
-    <string name="img_desc_item_pizzas">The icon of pizzas</string>
-    <string name="img_desc_item_kebabs">The icon of kebabs</string>
-    <string name="img_desc_item_muffins">The icon of muffins</string>
+    <string name="img_desc_item_burgers">The icon of burger</string>
+    <string name="img_desc_item_pizzas">The icon of pizza slice</string>
+    <string name="img_desc_item_kebabs">The icon of kebab</string>
+    <string name="img_desc_item_muffins">The icon of muffin</string>
     <string name="img_desc_item_chips">The icon of chips</string>
-    <string name="img_desc_item_donuts">The icon of donuts</string>
-    <string name="img_desc_item_tacos">The icon of tacos</string>
+    <string name="img_desc_item_donuts">The icon of donut</string>
+    <string name="img_desc_item_tacos">The icon of taco</string>
     <string name="img_desc_item_fried_chicken">The icon of fried chicken</string>
-    <string name="img_desc_item_nuggets">The icon of nuggets</string>
+    <string name="img_desc_item_burritos">The icon of burrito</string>
+    <string name="img_desc_item_nuggets">The icon of nugget</string>
+    <string name="img_desc_item_lollipops">The icon of lollipop</string>
+    <string name="img_desc_item_candies">The icon of candy</string>
+    <string name="img_desc_item_cookies">The icon of cookie</string>
+    <string name="img_desc_item_hot_dogs">The icon of hot dog</string>
 
     <!-- Icons description -->
     <string name="ic_desc_back">Back button</string>
