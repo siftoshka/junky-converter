@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
@@ -30,8 +31,10 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.platform.SoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -89,7 +92,7 @@ fun JunkSettingsScreen(
                         listState.junks?.let { junks ->
                             items(junks.size) {
                                 val junk = junks[it]
-                                JunkItem(junk, viewModel)
+                                JunkItem(junk, viewModel, keyboardController)
                             }
                         }
                     }
@@ -99,11 +102,13 @@ fun JunkSettingsScreen(
     }
 }
 
+@ExperimentalComposeUiApi
 @ExperimentalMaterialApi
 @Composable
 fun JunkItem(
     junk: Junk,
-    viewModel: JunkSettingsViewModel
+    viewModel: JunkSettingsViewModel,
+    keyboardController: SoftwareKeyboardController?
 ) {
     var value by remember { mutableStateOf(junk.value.toString()) }
 
@@ -132,8 +137,9 @@ fun JunkItem(
                 value = value,
                 modifier = Modifier
                     .width(100.dp)
-                    .height(48.dp),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    .height(52.dp),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone, imeAction = ImeAction.Done),
+                keyboardActions = KeyboardActions(onDone = { keyboardController?.hide() }),
                 shape = MaterialTheme.shapes.large,
                 onValueChange = {
                     val maxDigits = when (it.contains('.')) {

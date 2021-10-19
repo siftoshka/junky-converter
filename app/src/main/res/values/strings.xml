@@ -14,6 +14,7 @@
     <string name="text_change_junk">Change junk</string>
     <string name="menu_text_junks_tuning">Junks Tuning</string>
     <string name="menu_text_settings">Settings</string>
+    <string name="btn_selected">Selected</string>
 
     <!-- Junk Settings Screen -->
     <string name="junk_settings_title">Junk Tuning</string>

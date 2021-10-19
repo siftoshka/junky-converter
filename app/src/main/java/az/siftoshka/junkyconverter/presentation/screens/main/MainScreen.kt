@@ -61,7 +61,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun MainScreen(
     navController: NavController,
-    viewModel: MainViewModel = hiltViewModel()
+    viewModel: MainViewModel = hiltViewModel(),
 ) {
 
     val state = viewModel.junkState.value
@@ -84,7 +84,7 @@ fun MainScreen(
                     listState.junks?.let { junks ->
                         items(junks.size) {
                             val junk = junks[it]
-                            JunkBottomItem(junk.name, junk.icon, junk.iconDescription) {
+                            JunkBottomItem(junk.name, junk.icon, junk.iconDescription, junk.id == viewModel.selectedJunk?.id) {
                                 viewModel.setJunk(junks[it])
                                 scope.launch { sheetState.hide() }
                             }
@@ -293,6 +293,7 @@ fun JunkBottomItem(
     @StringRes name: Int,
     @DrawableRes icon: Int,
     @StringRes contentDescription: Int,
+    isSelected: Boolean,
     performClick: () -> Unit
 ) {
     Card(
@@ -316,6 +317,25 @@ fun JunkBottomItem(
                     contentDescription = stringResource(id = contentDescription),
                     modifier = Modifier.size(40.dp)
                 )
+            },
+            trailing = {
+                if (isSelected) {
+                    OutlinedButton(
+                        onClick = performClick,
+                        shape = RoundedCornerShape(20.dp),
+                        border = BorderStroke(1.dp, MaterialTheme.colors.primary),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            backgroundColor = Color.Transparent,
+                            contentColor = MaterialTheme.colors.primary
+                        )
+                    ) {
+                        Text(
+                            text = stringResource(id = R.string.btn_selected),
+                            style = MaterialTheme.typography.body2,
+                            color = MaterialTheme.colors.primary
+                        )
+                    }
+                }
             }
         )
     }

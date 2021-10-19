@@ -41,6 +41,7 @@ class MainViewModel @Inject constructor(
         private set
 
     private var getJunksJob: Job? = null
+    var selectedJunk: Junk? = null
 
     init {
         getAllJunks()
@@ -97,6 +98,7 @@ class MainViewModel @Inject constructor(
     fun setJunk(junk: Junk) {
         prefs.selectJunk(junk.id)
         _junkState.value = junkState.value.copy(junk = junk)
+        selectedJunk = junk
         clearData()
     }
 
