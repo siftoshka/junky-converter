@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                                 ) + fadeOut(animationSpec = tween(400))
                             }
                         ) {
-                            SettingsScreen()
+                            SettingsScreen(navController)
                         }
                         composable(
                             route = Screen.JunksTuning.route,

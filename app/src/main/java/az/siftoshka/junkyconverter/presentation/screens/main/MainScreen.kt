@@ -2,6 +2,13 @@ package az.siftoshka.junkyconverter.presentation.screens.main
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandHorizontally
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -33,6 +40,8 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -47,6 +56,9 @@ import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.domain.utils.Constants
 import az.siftoshka.junkyconverter.domain.utils.moneyFormat
+import az.siftoshka.junkyconverter.presentation.SharedViewModel
+import az.siftoshka.junkyconverter.presentation.components.JunkyDialog
+import az.siftoshka.junkyconverter.presentation.components.NewUpdate
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
 import az.siftoshka.junkyconverter.presentation.utils.Padding
 import az.siftoshka.junkyconverter.presentation.utils.Screen
@@ -56,16 +68,21 @@ import kotlinx.coroutines.launch
 /**
  * Composable function of Main screen.
  */
+@ExperimentalAnimationApi
 @ExperimentalFoundationApi
 @ExperimentalMaterialApi
 @Composable
 fun MainScreen(
     navController: NavController,
     viewModel: MainViewModel = hiltViewModel(),
+    sharedViewModel: SharedViewModel = hiltViewModel()
 ) {
 
     val state = viewModel.junkState.value
     val listState = viewModel.junksState.value
+    val updateState = sharedViewModel.updateState.value
+
+    val dialogState = remember { mutableStateOf(false) }
 
     val systemUiController = rememberSystemUiController()
     systemUiController.setStatusBarColor(color = MaterialTheme.colors.background)
@@ -108,6 +125,23 @@ fun MainScreen(
                         style = MaterialTheme.typography.h1,
                         color = MaterialTheme.colors.onBackground,
                     )
+                    sharedViewModel.isUpdateShown()
+                    JunkyDialog(
+                        title = R.string.update_dialog_title,
+                        text = R.string.update_dialog_text,
+                        textButton = R.string.update_dialog_button,
+                        dialogState
+                    ) {
+                        dialogState.value = false
+                        sharedViewModel.setUpdateShown()
+                    }
+                    AnimatedVisibility(
+                        visible = updateState,
+                        enter = fadeIn() + expandHorizontally(animationSpec = tween(500)),
+                        exit = fadeOut() + shrinkHorizontally(animationSpec = tween(500))
+                    ) {
+                        NewUpdate { dialogState.value = true }
+                    }
                 }
                 state.junk?.let { Converter(it.name) }
                 Column(
@@ -140,7 +174,7 @@ fun Converter(
     Row(
         modifier = Modifier
             .padding(Padding.Default)
-            .offset(y = 256.dp),
+            .offset(y = 224.dp),
         horizontalArrangement = Arrangement.Center,
     ) {
         Column(

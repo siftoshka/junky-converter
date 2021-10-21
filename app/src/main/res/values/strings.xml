@@ -5,7 +5,6 @@
     <string name="app_name_introduction">Junky\nConverter</string>
     <string name="app_description">Convert your money to the number of junky food. You are able to make your personal prices for each food. \n\nIt is absolutely free and enjoyable application! \nYou should try it now! </string>
     <string name="btn_intro">I am interested :)</string>
-    <string name="img_desc_logo">The logo of the app.</string>
 
     <!-- Main Screen -->
     <string name="text_junky">Junky</string>
@@ -18,7 +17,10 @@
 
     <!-- Junk Settings Screen -->
     <string name="junk_settings_title">Junk Tuning</string>
-    
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Settings</string>
+
     <!-- Item names -->
     <string name="item_burgers">Burgers</string>
     <string name="item_pizzas">Pizzas</string>
@@ -57,4 +59,23 @@
     <!-- Messages & Tips -->
     <string name="tip_how_to_use">How to use?</string>
     <string name="tip_how_to_use_long">Here you can edit values of each junk food.\nFor example, 2.5 Burgers will show how many you can buy by "1" of your own money.\n\n1 Your money = 2.5 Burgers.</string>
+    <string name="update_dialog_title">What\'s new</string>
+    <string name="update_dialog_text">
+        v0.6.0
+        \n
+        - Updated light theme
+        \n
+        - New update notificator
+        \n\n
+        v0.5.0
+        \n
+        - Images
+        \n
+        - Updated Theming
+        \n
+        - More Junks
+        \n
+        - Selected junk indicator
+    </string>
+    <string name="update_dialog_button">Got it</string>
 </resources>

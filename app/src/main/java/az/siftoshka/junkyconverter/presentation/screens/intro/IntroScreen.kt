@@ -1,6 +1,5 @@
 package az.siftoshka.junkyconverter.presentation.screens.intro
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -21,7 +20,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -30,6 +28,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.presentation.SharedViewModel
+import az.siftoshka.junkyconverter.presentation.components.AnimationLoader
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
 import az.siftoshka.junkyconverter.presentation.utils.Padding
 import az.siftoshka.junkyconverter.presentation.utils.Screen
@@ -86,7 +85,7 @@ fun IntroductionCard() {
     Surface(
         color = MaterialTheme.colors.surface,
         modifier = Modifier
-            .height(700.dp)
+            .height(600.dp)
             .fillMaxWidth(),
         shape = RoundedCornerShape(50.dp).copy(topStart = ZeroCornerSize, topEnd = ZeroCornerSize)
     ) {
@@ -94,11 +93,7 @@ fun IntroductionCard() {
             modifier = Modifier
                 .padding(Padding.Default), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center
         ) {
-            Image(
-                painterResource(id = R.drawable.ic_intro),
-                contentDescription = stringResource(id = R.string.img_desc_logo),
-                Modifier.size(300.dp)
-            )
+            AnimationLoader(value = R.raw.burger, modifier = Modifier.size(200.dp))
             Text(
                 text = stringResource(id = R.string.app_name_introduction),
                 style = MaterialTheme.typography.h1,
