@@ -6,6 +6,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.expandHorizontally
+import androidx.compose.animation.expandIn
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkHorizontally
@@ -148,18 +149,14 @@ fun MainScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Bottom
                 ) {
-                    ChangeJunkButton { scope.launch { sheetState.show() } }
-                    Options(navController)
-                    LazyVerticalGrid(
-                        cells = GridCells.Fixed(3),
-                        modifier = Modifier.padding(Padding.Smaller)
+                    AnimatedVisibility(
+                        visible = listState.junks?.isNotEmpty() ?: false,
+                        enter = fadeIn() + expandIn(expandFrom = Alignment.BottomCenter, animationSpec = tween(1000)),
                     ) {
-                        items(Constants.numPadNumbers.count()) { index ->
-                            NumPadItem(Constants.numPadNumbers[index]) {
-                                viewModel.computeYourMoney(Constants.numPadNumbers[index])
-                            }
-                        }
+                        ChangeJunkButton { scope.launch { sheetState.show() } }
                     }
+                    Options(navController)
+                    NumPad()
                 }
             }
         }
@@ -295,6 +292,21 @@ fun Options(
         }
     }
     Divider(color = MaterialTheme.colors.onBackground, thickness = 1.dp)
+}
+
+@ExperimentalFoundationApi
+@Composable
+fun NumPad(viewModel: MainViewModel = hiltViewModel()) {
+    LazyVerticalGrid(
+        cells = GridCells.Fixed(3),
+        modifier = Modifier.padding(Padding.Smaller)
+    ) {
+        items(Constants.numPadNumbers.count()) { index ->
+            NumPadItem(Constants.numPadNumbers[index]) {
+                viewModel.computeYourMoney(Constants.numPadNumbers[index])
+            }
+        }
+    }
 }
 
 @Composable
