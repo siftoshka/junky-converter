@@ -45,4 +45,8 @@ class SharedViewModel @Inject constructor(
             _updateState.value = !prefs.isUpdateShown()
         }
     }
+
+    fun isTipVisible() = prefs.isTipVisible()
+
+    fun setTipVisibility(value: Boolean) = prefs.setTipVisibility(value)
 }

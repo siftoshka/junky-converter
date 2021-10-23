@@ -21,6 +21,7 @@ class SharedPrefManager @Inject constructor(
         private const val KEY_SHOWN_INTRO = "key_shown_intro"
         private const val KEY_JUNK_ID = "key_junk_id"
         private const val KEY_VERSION_NAME = "key_version_name"
+        private const val KEY_SETTINGS_TIP = "key_settings_tip"
     }
 
     fun isIntroShown() = preferences.getBoolean(KEY_SHOWN_INTRO, false)
@@ -49,5 +50,13 @@ class SharedPrefManager @Inject constructor(
 
     fun isUpdateShown(): Boolean {
         return app.getString(R.string.version_name) == getVersionName()
+    }
+
+    fun isTipVisible() = preferences.getBoolean(KEY_SETTINGS_TIP, true)
+
+    fun setTipVisibility(value: Boolean) {
+        preferences.edit(commit = true) {
+            putBoolean(KEY_SETTINGS_TIP, value)
+        }
     }
 }

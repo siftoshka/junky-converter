@@ -20,6 +20,9 @@
 
     <!-- Settings Screen -->
     <string name="settings_title">Settings</string>
+    <string name="text_settings_general">General</string>
+    <string name="text_settings_show_tip_title">Show tip</string>
+    <string name="text_settings_show_tip_description">When it is turned on you will see the tip in Junk Tuning screen</string>
 
     <!-- Item names -->
     <string name="item_burgers">Burgers</string>

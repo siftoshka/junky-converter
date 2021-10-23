@@ -41,6 +41,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.domain.model.Junk
+import az.siftoshka.junkyconverter.presentation.SharedViewModel
 import az.siftoshka.junkyconverter.presentation.components.JunkyTopAppBar
 import az.siftoshka.junkyconverter.presentation.components.Tip
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
@@ -54,7 +55,8 @@ import az.siftoshka.junkyconverter.presentation.utils.Padding
 @Composable
 fun JunkSettingsScreen(
     navController: NavController,
-    viewModel: JunkSettingsViewModel = hiltViewModel()
+    viewModel: JunkSettingsViewModel = hiltViewModel(),
+    sharedViewModel: SharedViewModel = hiltViewModel()
 ) {
 
     val listState = viewModel.junksState.value
@@ -72,11 +74,7 @@ fun JunkSettingsScreen(
                     navController.popBackStack()
                 }
                 Spacer(modifier = Modifier.height(16.dp))
-                Row(
-                    modifier = Modifier
-                        .padding(horizontal = Padding.Default)
-                        .fillMaxWidth()
-                ) {
+                if (sharedViewModel.isTipVisible()) {
                     Tip(
                         shortText = R.string.tip_how_to_use,
                         longText = R.string.tip_how_to_use_long

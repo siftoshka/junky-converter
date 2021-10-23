@@ -37,6 +37,7 @@ fun Tip(
         modifier = Modifier
             .wrapContentSize()
             .animateContentSize(tween(400))
+            .padding(horizontal = Padding.Default)
     ) {
         Text(
             text = if (short) stringResource(id = shortText) else stringResource(id = longText),
