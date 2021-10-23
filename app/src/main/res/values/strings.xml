@@ -26,6 +26,7 @@
     <string name="text_settings_about">About</string>
     <string name="text_settings_credits">Credits</string>
     <string name="text_settings_credits_full">Burger by Enzo Bartier at lottiefiles.com\npizza ingrediants by Mvsaffa at lottiefiles.com</string>
+    <string name="text_settings_contact_me">Contact me</string>
 
     <!-- Item names -->
     <string name="item_burgers">Burgers</string>
@@ -61,6 +62,9 @@
 
     <!-- Icons description -->
     <string name="ic_desc_back">Back button</string>
+    <string name="ic_desc_telegram">Telegram icon</string>
+    <string name="ic_desc_instagram">Instagram icon</string>
+    <string name="ic_desc_github">Github icon</string>
 
     <!-- Messages & Tips -->
     <string name="tip_how_to_use">How to use?</string>
