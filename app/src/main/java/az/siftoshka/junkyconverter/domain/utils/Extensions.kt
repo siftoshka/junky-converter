@@ -6,7 +6,7 @@ import android.net.Uri
 import java.text.DecimalFormat
 
 /**
- * Converter extension file.
+ *  General extension file.
  */
 fun String.moneyFormat(): String {
     if (this == "0") return this

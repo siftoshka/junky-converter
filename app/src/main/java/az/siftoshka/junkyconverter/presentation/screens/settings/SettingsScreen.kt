@@ -16,6 +16,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.ListItem
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -39,6 +40,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.domain.utils.Social
+import az.siftoshka.junkyconverter.domain.utils.getCurrentLanguage
 import az.siftoshka.junkyconverter.domain.utils.getGithubIntent
 import az.siftoshka.junkyconverter.domain.utils.getInstagramIntent
 import az.siftoshka.junkyconverter.domain.utils.getTelegramIntent
@@ -48,6 +50,7 @@ import az.siftoshka.junkyconverter.presentation.components.FoldableText
 import az.siftoshka.junkyconverter.presentation.components.JunkyTopAppBar
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
 import az.siftoshka.junkyconverter.presentation.utils.Padding
+import az.siftoshka.junkyconverter.presentation.utils.Screen
 import az.siftoshka.junkyconverter.presentation.utils.SocialColors
 
 /**
@@ -67,9 +70,7 @@ fun SettingsScreen(
 
     JunkyConverterTheme {
         Surface(
-            color = MaterialTheme.colors.background, modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(scrollState)
+            color = MaterialTheme.colors.background, modifier = Modifier.fillMaxSize()
         ) {
             Column(modifier = Modifier.fillMaxSize()) {
                 JunkyTopAppBar(
@@ -82,10 +83,16 @@ fun SettingsScreen(
                 }
                 Column(
                     modifier = Modifier
+                        .fillMaxSize()
                         .padding(Padding.Default)
                         .weight(1f)
+                        .verticalScroll(scrollState)
                 ) {
                     TitleText(text = R.string.text_settings_general)
+                    ButtonItem(
+                        text = R.string.text_settings_language,
+                        getCurrentLanguage()
+                    ) { navController.navigate(Screen.LanguageScreen.route) }
                     SwitchItem(
                         text = R.string.text_settings_show_tip_title,
                         description = R.string.text_settings_show_tip_description,
@@ -96,6 +103,7 @@ fun SettingsScreen(
                     }
                     Spacer(modifier = Modifier.height(48.dp))
                     TitleText(text = R.string.text_settings_about)
+                    TextItem(text = R.string.text_settings_app_version, secondaryText = R.string.version_name)
                     ContactMeField(text = R.string.text_settings_contact_me) {
                         when (it) {
                             Social.TELEGRAM -> getTelegramIntent(context)
@@ -104,13 +112,15 @@ fun SettingsScreen(
                         }
                     }
                     FoldableText(shortText = R.string.text_settings_credits, longText = R.string.text_settings_credits_full)
-                }
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Bottom
-                ) {
-                    AnimationLoader(value = R.raw.ingredients, modifier = Modifier.size(200.dp))
+                    Row(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .weight(1f),
+                        horizontalArrangement = Arrangement.Center,
+                        verticalAlignment = Alignment.Bottom
+                    ) {
+                        AnimationLoader(value = R.raw.ingredients, modifier = Modifier.size(200.dp))
+                    }
                 }
             }
         }
@@ -126,6 +136,47 @@ fun TitleText(@StringRes text: Int) {
         textAlign = TextAlign.Start,
         modifier = Modifier.padding(bottom = Padding.Smallest)
     )
+}
+
+@ExperimentalMaterialApi
+@Composable
+fun ButtonItem(
+    @StringRes text: Int,
+    language: String,
+    onPerformClick: () -> Unit
+) {
+    Card(
+        shape = MaterialTheme.shapes.large,
+        backgroundColor = MaterialTheme.colors.surface,
+        elevation = 0.dp,
+        onClick = { onPerformClick() },
+        modifier = Modifier.padding(vertical = Padding.Smallest)
+    ) {
+        ListItem(
+            text = {
+                Text(
+                    text = stringResource(id = text),
+                    style = MaterialTheme.typography.h4,
+                    color = MaterialTheme.colors.onSurface,
+                )
+            },
+            trailing = {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = language,
+                        style = MaterialTheme.typography.body2,
+                        color = MaterialTheme.colors.secondaryVariant,
+                    )
+                    IconButton(onClick = onPerformClick) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_forward),
+                            contentDescription = stringResource(id = R.string.ic_desc_forward),
+                        )
+                    }
+                }
+            }
+        )
+    }
 }
 
 @ExperimentalMaterialApi
@@ -155,7 +206,7 @@ fun SwitchItem(
                 Text(
                     text = stringResource(id = description),
                     style = MaterialTheme.typography.body2,
-                    color = MaterialTheme.colors.onSurface,
+                    color = MaterialTheme.colors.secondaryVariant,
                     modifier = Modifier.padding(vertical = Padding.Small)
                 )
             },
@@ -164,6 +215,38 @@ fun SwitchItem(
                     checked = isChecked.value,
                     onCheckedChange = { onPerformClick(it) },
                     colors = SwitchDefaults.colors(checkedThumbColor = MaterialTheme.colors.primary)
+                )
+            }
+        )
+    }
+}
+
+@ExperimentalMaterialApi
+@Composable
+fun TextItem(
+    @StringRes text: Int,
+    @StringRes secondaryText: Int
+) {
+    Card(
+        shape = MaterialTheme.shapes.large,
+        backgroundColor = MaterialTheme.colors.surface,
+        elevation = 0.dp,
+        modifier = Modifier.padding(vertical = Padding.Smallest)
+    ) {
+        ListItem(
+            text = {
+                Text(
+                    text = stringResource(id = text),
+                    style = MaterialTheme.typography.h4,
+                    color = MaterialTheme.colors.onSurface,
+                )
+            },
+            trailing = {
+                Text(
+                    text = stringResource(id = secondaryText),
+                    style = MaterialTheme.typography.body2,
+                    color = MaterialTheme.colors.secondaryVariant,
+                    modifier = Modifier.padding(vertical = Padding.Small)
                 )
             }
         )
@@ -197,7 +280,7 @@ fun ContactMeField(
                     onClick = { onPerformClick(Social.TELEGRAM) },
                     modifier = Modifier.width(100.dp),
                     elevation = 0.dp
-                    ) {
+                ) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_telegram),
                         contentDescription = stringResource(id = R.string.ic_desc_telegram),
@@ -211,7 +294,7 @@ fun ContactMeField(
                     onClick = { onPerformClick(Social.GITHUB) },
                     modifier = Modifier.width(100.dp),
                     elevation = 0.dp
-                    ) {
+                ) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_github),
                         contentDescription = stringResource(id = R.string.ic_desc_github),
@@ -225,7 +308,7 @@ fun ContactMeField(
                     onClick = { onPerformClick(Social.INSTAGRAM) },
                     modifier = Modifier.width(100.dp),
                     elevation = 0.dp
-                    ) {
+                ) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_instagram),
                         contentDescription = stringResource(id = R.string.ic_desc_instagram),
