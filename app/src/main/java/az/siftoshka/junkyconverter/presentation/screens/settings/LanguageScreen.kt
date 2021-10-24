@@ -76,6 +76,15 @@ fun LanguageScreen(navController: NavController) {
                                 LanguageCategory.ENGLISH -> {
                                     context.updateLanguage(Language.ENGLISH.language, Language.ENGLISH.country)
                                 }
+                                LanguageCategory.AZERBAIJANI -> {
+                                    context.updateLanguage(Language.AZERBAIJANI.language, Language.AZERBAIJANI.country)
+                                }
+                                LanguageCategory.FRENCH -> {
+                                    context.updateLanguage(Language.FRENCH.language, Language.FRENCH.country)
+                                }
+                                LanguageCategory.SPANISH -> {
+                                    context.updateLanguage(Language.SPANISH.language, Language.SPANISH.country)
+                                }
                                 LanguageCategory.RUSSIAN -> {
                                     context.updateLanguage(Language.RUSSIAN.language, Language.RUSSIAN.country)
                                 }

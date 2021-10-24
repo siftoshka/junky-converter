@@ -1,0 +1,106 @@
+<resources>
+    <string name="app_name">Junky Converter</string>
+
+    <!-- Introduction Screen -->
+    <string name="app_name_introduction">Şey-şüy\nÇeviricilər</string>
+    <string name="app_description">Pulunuzu şey-şüyün sayına çevirin. Siz hər bir yemək üçün öz qiymətlərinizi təyin edə bilərsiniz. \n\nTamamilə pulsuz və xoş proqramdır! \nİndi cəhd etməlisiniz!</string>
+    <string name="btn_intro">Başlayaq :)</string>
+
+    <!-- Main Screen -->
+    <string name="text_junky">Şey-şüy</string>
+    <string name="text_converter">Çeviricilər</string>
+    <string name="text_your_money">Pulunuz</string>
+    <string name="text_change_junk">Şey-şüyü dəyiş</string>
+    <string name="menu_text_junks_tuning">Şey-şüy sazlama</string>
+    <string name="menu_text_settings">Parametrlər</string>
+    <string name="btn_selected">Seçilib</string>
+
+    <!-- Junk Settings Screen -->
+    <string name="junk_settings_title">Şey-şüy sazlama</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Parametrlər</string>
+    <string name="text_settings_general">Ümumi</string>
+    <string name="text_settings_language">Dil</string>
+    <string name="text_settings_show_tip_title">İpucu göstər</string>
+    <string name="text_settings_show_tip_description">Yandırıldıqda, Şey-şüy sazlama ekranında ipucu görəcəksiniz</string>
+    <string name="text_settings_about">Məlumat</string>
+    <string name="text_settings_app_version">Proqram versiyası</string>
+    <string name="text_settings_credits">Təşəkkürlər</string>
+    <string name="text_settings_credits_full">lottiefiles.com saytında Enzo Bartier tərəfindən Burger\nlottiefiles.com saytında Mvsaffa tərəfindən pizza ingrediants</string>
+    <string name="text_settings_contact_me">Mənimlə əlaqə saxlayın</string>
+
+    <!-- Item names -->
+    <string name="item_burgers">Burger</string>
+    <string name="item_pizzas">Pizza</string>
+    <string name="item_kebabs">Dönər</string>
+    <string name="item_muffins">Maffin</string>
+    <string name="item_chips">Çips</string>
+    <string name="item_donuts">Donat</string>
+    <string name="item_tacos">Tako</string>
+    <string name="item_fried_chicken">Qızardılmış toyuq</string>
+    <string name="item_burritos">Burrito</string>
+    <string name="item_nuggets">Naqqet</string>
+    <string name="item_lollipops">Lollipop</string>
+    <string name="item_candies">Şirniyyat</string>
+    <string name="item_cookies">Kökə</string>
+    <string name="item_hot_dogs">Hot doq</string>
+
+    <!-- Item names -->
+    <string name="img_desc_item_burgers">The icon of burger</string>
+    <string name="img_desc_item_pizzas">The icon of pizza slice</string>
+    <string name="img_desc_item_kebabs">The icon of kebab</string>
+    <string name="img_desc_item_muffins">The icon of muffin</string>
+    <string name="img_desc_item_chips">The icon of chips</string>
+    <string name="img_desc_item_donuts">The icon of donut</string>
+    <string name="img_desc_item_tacos">The icon of taco</string>
+    <string name="img_desc_item_fried_chicken">The icon of fried chicken</string>
+    <string name="img_desc_item_burritos">The icon of burrito</string>
+    <string name="img_desc_item_nuggets">The icon of nugget</string>
+    <string name="img_desc_item_lollipops">The icon of lollipop</string>
+    <string name="img_desc_item_candies">The icon of candy</string>
+    <string name="img_desc_item_cookies">The icon of cookie</string>
+    <string name="img_desc_item_hot_dogs">The icon of hot dog</string>
+
+    <!-- Icons description -->
+    <string name="ic_desc_back">Geri düyməsi</string>
+    <string name="ic_desc_forward">İrəli düyməsi</string>
+    <string name="ic_desc_telegram">Telegram nişanı</string>
+    <string name="ic_desc_instagram">Instagram nişanı</string>
+    <string name="ic_desc_github">Github nişanı</string>
+
+    <!-- Messages & Tips -->
+    <string name="tip_how_to_use">Necə istifadə etməli?</string>
+    <string name="tip_how_to_use_long">Burada hər bir şey-şüyün dəyərlərini redaktə edə bilərsiniz.\nMəsələn, 2.5 Burgeri öz pulunuzla "1"-ə nə qədər ala biləcəyinizi göstərəcək.\n\n1 Pulunuz = 2,5 Burger.</string>
+    <string name="update_dialog_title">Nə yenilik var</string>
+    <string name="update_dialog_text">
+        v0.6.0
+        \n\n
+        - Settings screen
+        \n
+        - Animations
+        \n
+        - Updated light theme
+        \n
+        - New update notificator
+        \n\n\n
+        v0.5.0
+        \n\n
+        - Images
+        \n
+        - Updated Theming
+        \n
+        - More Junks
+        \n
+        - Selected junk indicator
+    </string>
+    <string name="update_dialog_button">Anladım</string>
+
+    <!-- Languages -->
+    <string name="text_lang_automatic">Avtomatik</string>
+    <string name="text_lang_english">İngilis</string>
+    <string name="text_lang_azerbaijani">Azərbaycan</string>
+    <string name="text_lang_spanish">İspan</string>
+    <string name="text_lang_french">Fransız</string>
+    <string name="text_lang_russian">Rus</string>
+</resources>

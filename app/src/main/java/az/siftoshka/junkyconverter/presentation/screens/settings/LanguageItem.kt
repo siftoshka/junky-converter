@@ -18,7 +18,7 @@ enum class LanguageCategory {
     ENGLISH,
     AZERBAIJANI,
     SPANISH,
-    ITALIANO,
+    FRENCH,
     RUSSIAN
 }
 
@@ -43,9 +43,9 @@ val languages = mutableListOf(
         Language.SPANISH.language
     ),
     LanguageItem(
-        LanguageCategory.ITALIANO,
-        R.string.text_lang_italian,
-        Language.ITALIANO.language
+        LanguageCategory.FRENCH,
+        R.string.text_lang_french,
+        Language.FRENCH.language
     ),
     LanguageItem(
         LanguageCategory.RUSSIAN,

@@ -1,0 +1,106 @@
+<resources>
+    <string name="app_name">Junky Converter</string>
+
+    <!-- Introduction Screen -->
+    <string name="app_name_introduction">Junky\nConverter</string>
+    <string name="app_description">Переводи свои деньги на колическо фаст фуда. Ты можешь поставить свою любую цену на любой фаст фуд. \n\nАбсолютно бесплатное приложение! \nПопробуй сам! </string>
+    <string name="btn_intro">Я в деле :)</string>
+
+    <!-- Main Screen -->
+    <string name="text_junky">Junky</string>
+    <string name="text_converter">Converter</string>
+    <string name="text_your_money">Твои деньги</string>
+    <string name="text_change_junk">Изменить еду</string>
+    <string name="menu_text_junks_tuning">Редактор</string>
+    <string name="menu_text_settings">Настройки</string>
+    <string name="btn_selected">Выбрано</string>
+
+    <!-- Junk Settings Screen -->
+    <string name="junk_settings_title">Редактор</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Настройки</string>
+    <string name="text_settings_general">Общее</string>
+    <string name="text_settings_language">Язык</string>
+    <string name="text_settings_show_tip_title">Показать подсказку</string>
+    <string name="text_settings_show_tip_description">Когда включено, вы можете увидеть подсказку в редакторе</string>
+    <string name="text_settings_about">Информация</string>
+    <string name="text_settings_app_version">Версия приложения</string>
+    <string name="text_settings_credits">Благодарности</string>
+    <string name="text_settings_credits_full">Burger от Enzo Bartier на lottiefiles.com\npizza ingrediants от Mvsaffa на lottiefiles.com</string>
+    <string name="text_settings_contact_me">Связаться со мной</string>
+
+    <!-- Item names -->
+    <string name="item_burgers">Бургер</string>
+    <string name="item_pizzas">Пицца</string>
+    <string name="item_kebabs">Шаурма</string>
+    <string name="item_muffins">Маффин</string>
+    <string name="item_chips">Чипсы</string>
+    <string name="item_donuts">Пончик</string>
+    <string name="item_tacos">Тако</string>
+    <string name="item_fried_chicken">Жаренная курица</string>
+    <string name="item_burritos">Буррито</string>
+    <string name="item_nuggets">Наггет</string>
+    <string name="item_lollipops">Леденец</string>
+    <string name="item_candies">Конфета</string>
+    <string name="item_cookies">Печенье</string>
+    <string name="item_hot_dogs">Хот дог</string>
+
+    <!-- Item names -->
+    <string name="img_desc_item_burgers">Иконка бургера</string>
+    <string name="img_desc_item_pizzas">Иконка куска пиццы</string>
+    <string name="img_desc_item_kebabs">Иконка шаурмы</string>
+    <string name="img_desc_item_muffins">Иконка маффина</string>
+    <string name="img_desc_item_chips">Иконка чипсов</string>
+    <string name="img_desc_item_donuts">Иконка пончика</string>
+    <string name="img_desc_item_tacos">Иконка тако</string>
+    <string name="img_desc_item_fried_chicken">Иконка жаренной курицы</string>
+    <string name="img_desc_item_burritos">Иконка буррито</string>
+    <string name="img_desc_item_nuggets">Иконка наггетса</string>
+    <string name="img_desc_item_lollipops">Иконка леденца</string>
+    <string name="img_desc_item_candies">Иконка конфеты</string>
+    <string name="img_desc_item_cookies">Иконка печеньки</string>
+    <string name="img_desc_item_hot_dogs">Иконка хот дога</string>
+
+    <!-- Icons description -->
+    <string name="ic_desc_back">Кнопка назад</string>
+    <string name="ic_desc_forward">Кнопка вперёд</string>
+    <string name="ic_desc_telegram">Иконка Телеграм</string>
+    <string name="ic_desc_instagram">Иконка Инстаграм</string>
+    <string name="ic_desc_github">Иконка Гитхаб</string>
+
+    <!-- Messages & Tips -->
+    <string name="tip_how_to_use">Как пользоваться?</string>
+    <string name="tip_how_to_use_long">Here you can edit values of each junk food.\nFor example, 2.5 Burgers will show how many you can buy by "1" of your own money.\n\n1 Your money = 2.5 Burgers.</string>
+    <string name="update_dialog_title">Что нового</string>
+    <string name="update_dialog_text">
+        v0.6.0
+        \n\n
+        - Settings screen
+        \n
+        - Animations
+        \n
+        - Updated light theme
+        \n
+        - New update notificator
+        \n\n\n
+        v0.5.0
+        \n\n
+        - Images
+        \n
+        - Updated Theming
+        \n
+        - More Junks
+        \n
+        - Selected junk indicator
+    </string>
+    <string name="update_dialog_button">Понял</string>
+
+    <!-- Languages -->
+    <string name="text_lang_automatic">Автоматически</string>
+    <string name="text_lang_english">Английский</string>
+    <string name="text_lang_azerbaijani">Азербайджанский</string>
+    <string name="text_lang_spanish">Испанский</string>
+    <string name="text_lang_french">Французский</string>
+    <string name="text_lang_russian">Русский</string>
+</resources>

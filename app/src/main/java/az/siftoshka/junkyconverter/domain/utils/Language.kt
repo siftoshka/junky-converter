@@ -7,7 +7,7 @@ enum class Language(val id: Int, val language: String, val country: String) {
     ENGLISH(1, "en", "GB"),
     AZERBAIJANI(2, "az", "AZ"),
     SPANISH(3, "es", "BR"),
-    ITALIANO(4, "it", "IT"),
+    FRENCH(4, "fr", "FR"),
     RUSSIAN(5, "ru", "RU");
 
     companion object {
