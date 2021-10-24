@@ -1,4 +1,4 @@
-package az.siftoshka.junkyconverter.presentation.screens.settings
+package az.siftoshka.junkyconverter.presentation.screens.settings.language
 
 import androidx.annotation.StringRes
 import az.siftoshka.junkyconverter.R

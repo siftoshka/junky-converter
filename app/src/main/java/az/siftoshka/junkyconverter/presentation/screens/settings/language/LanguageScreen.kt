@@ -1,4 +1,4 @@
-package az.siftoshka.junkyconverter.presentation.screens.settings
+package az.siftoshka.junkyconverter.presentation.screens.settings.language
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column

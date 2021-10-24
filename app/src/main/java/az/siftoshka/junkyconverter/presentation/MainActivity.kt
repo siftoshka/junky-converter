@@ -19,7 +19,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import az.siftoshka.junkyconverter.presentation.screens.intro.IntroScreen
 import az.siftoshka.junkyconverter.presentation.screens.junksetting.JunkSettingsScreen
 import az.siftoshka.junkyconverter.presentation.screens.main.MainScreen
-import az.siftoshka.junkyconverter.presentation.screens.settings.LanguageScreen
+import az.siftoshka.junkyconverter.presentation.screens.settings.language.LanguageScreen
 import az.siftoshka.junkyconverter.presentation.screens.settings.SettingsScreen
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
 import az.siftoshka.junkyconverter.presentation.utils.Screen
