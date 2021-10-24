@@ -23,7 +23,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyVerticalGrid
@@ -220,9 +219,7 @@ fun Converter(
 fun ChangeJunkButton(onPerformClick: () -> Unit) {
     OutlinedButton(
         onClick = onPerformClick,
-        modifier = Modifier
-            .padding(Padding.Default)
-            .width(164.dp),
+        modifier = Modifier.padding(Padding.Default),
         shape = RoundedCornerShape(20.dp),
         border = BorderStroke(1.dp, MaterialTheme.colors.primary),
         colors = ButtonDefaults.outlinedButtonColors(
@@ -233,7 +230,8 @@ fun ChangeJunkButton(onPerformClick: () -> Unit) {
         Text(
             text = stringResource(id = R.string.text_change_junk),
             style = MaterialTheme.typography.body2,
-            color = MaterialTheme.colors.onBackground
+            color = MaterialTheme.colors.onBackground,
+            modifier = Modifier.padding(horizontal = Padding.Default)
         )
     }
 }
