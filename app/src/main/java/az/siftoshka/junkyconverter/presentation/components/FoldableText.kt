@@ -39,12 +39,20 @@ fun FoldableText(
             .animateContentSize(tween(400))
     ) {
         Text(
-            text = if (short) stringResource(id = shortText)
-            else stringResource(id = shortText) + "\n\n" + stringResource(id = longText),
+            text = stringResource(id = shortText),
             style = MaterialTheme.typography.h4,
             color = MaterialTheme.colors.onSurface,
             textAlign = TextAlign.Start,
             modifier = Modifier.padding(Padding.Default)
         )
+        if (!short) {
+            Text(
+                text = "\n\n" + stringResource(id = longText),
+                style = MaterialTheme.typography.body2,
+                color = MaterialTheme.colors.secondaryVariant,
+                textAlign = TextAlign.Start,
+                modifier = Modifier.padding(Padding.Default)
+            )
+        }
     }
 }
