@@ -1,4 +1,4 @@
-# JunkyConverter
+# Junky Converter (Jetpack Compose App)
 Convert your money to the number of junky food. You are able to make your personal prices for each food.
 #
 ### How to compile?
