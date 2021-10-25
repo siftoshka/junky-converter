@@ -71,7 +71,7 @@
 
     <!-- Messages & Tips -->
     <string name="tip_how_to_use">Necə istifadə etməli?</string>
-    <string name="tip_how_to_use_long">Burada hər bir şey-şüyün dəyərlərini redaktə edə bilərsiniz.\nMəsələn, 2.5 Burgeri öz pulunuzla "1"-ə nə qədər ala biləcəyinizi göstərəcək.\n\n1 Pulunuz = 2,5 Burger.</string>
+    <string name="tip_how_to_use_long">Burada hər bir şey-şüyün dəyərlərini redaktə edə bilərsiniz.\nMəsələn, 1 Burgerin qədəri öz pulunuzla 3-ə bərabər ola bilər.\n\n3 Pulunuz = 1 Burger.</string>
     <string name="update_dialog_title">Nə yenilik var</string>
     <string name="update_dialog_text">
         v0.6.0

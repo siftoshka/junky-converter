@@ -91,7 +91,7 @@ class MainViewModel @Inject constructor(
 
     private fun computeJunkMoney() {
         junkMoney = if (yourMoney != zero) {
-            yourMoney.toFloat().times(_junkState.value.junk?.value ?: 1f).toString()
+            yourMoney.toFloat().div(_junkState.value.junk?.value ?: 1f).toString()
         } else zero
     }
 

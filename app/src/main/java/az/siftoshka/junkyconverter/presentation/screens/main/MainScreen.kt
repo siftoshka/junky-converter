@@ -20,9 +20,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyVerticalGrid
@@ -143,11 +143,11 @@ fun MainScreen(
                         NewUpdate { dialogState.value = true }
                     }
                 }
-                state.junk?.let { Converter(it.name) }
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Bottom
                 ) {
+                    state.junk?.let { Converter(it.name) }
                     AnimatedVisibility(
                         visible = listState.junks?.isNotEmpty() ?: false,
                         enter = fadeIn() + expandIn(expandFrom = Alignment.BottomCenter, animationSpec = tween(1000)),
@@ -167,34 +167,12 @@ fun Converter(
     @StringRes name: Int,
     viewModel: MainViewModel = hiltViewModel()
 ) {
-    Row(
-        modifier = Modifier
-            .padding(Padding.Default)
-            .offset(y = 224.dp),
-        horizontalArrangement = Arrangement.Center,
+    Column(
+        modifier = Modifier.padding(bottom = 96.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Column(
             modifier = Modifier
-                .weight(1f)
-                .padding(horizontal = Padding.Smallest), horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = stringResource(id = R.string.text_your_money),
-                style = MaterialTheme.typography.h3,
-                color = MaterialTheme.colors.onBackground
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = viewModel.yourMoney.moneyFormat(),
-                style = MaterialTheme.typography.h4,
-                color = MaterialTheme.colors.primary,
-                fontSize = 32.sp,
-                maxLines = 1
-            )
-        }
-        Column(
-            modifier = Modifier
-                .weight(1f)
                 .padding(horizontal = Padding.Smallest), horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -207,6 +185,22 @@ fun Converter(
                 text = viewModel.junkMoney.moneyFormat(),
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.onBackground,
+                fontSize = 32.sp,
+                maxLines = 1
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Divider(color = MaterialTheme.colors.onBackground, thickness = 1.dp, modifier = Modifier.width(64.dp))
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                text = stringResource(id = R.string.text_your_money),
+                style = MaterialTheme.typography.h3,
+                color = MaterialTheme.colors.secondaryVariant
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = viewModel.yourMoney.moneyFormat(),
+                style = MaterialTheme.typography.h4,
+                color = MaterialTheme.colors.primary,
                 fontSize = 32.sp,
                 maxLines = 1
             )

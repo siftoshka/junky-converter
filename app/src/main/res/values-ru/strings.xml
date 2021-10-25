@@ -71,7 +71,7 @@
 
     <!-- Messages & Tips -->
     <string name="tip_how_to_use">Как пользоваться?</string>
-    <string name="tip_how_to_use_long">Here you can edit values of each junk food.\nFor example, 2.5 Burgers will show how many you can buy by "1" of your own money.\n\n1 Your money = 2.5 Burgers.</string>
+    <string name="tip_how_to_use_long">Здесь ты можешь изменить цену любой еды, которая существует в твоём округе.\n\nНапример: 100 Твои денег = 1 Бургер.</string>
     <string name="update_dialog_title">Что нового</string>
     <string name="update_dialog_text">
         v0.6.0
