@@ -2,7 +2,7 @@ package az.siftoshka.junkyconverter.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import az.siftoshka.junkyconverter.domain.utils.Constants
+import az.siftoshka.junkyconverter.domain.util.Constants
 
 /**
  * The data class of the data element Junk food.

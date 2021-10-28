@@ -1,4 +1,4 @@
-package az.siftoshka.junkyconverter.domain.utils
+package az.siftoshka.junkyconverter.domain.util
 
 /**
  * Enum class for language selector.

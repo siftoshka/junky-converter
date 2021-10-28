@@ -4,8 +4,8 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import az.siftoshka.junkyconverter.data.repository.SharedPrefManager
 import az.siftoshka.junkyconverter.domain.model.Junk
+import az.siftoshka.junkyconverter.domain.repository.LocalRepository
 import az.siftoshka.junkyconverter.domain.usecases.JunkUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -20,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class JunkSettingsViewModel @Inject constructor(
     private val junkUseCases: JunkUseCases,
-    private val prefs: SharedPrefManager
+    private val localRepository: LocalRepository
 ) : ViewModel() {
 
     private val _junksState = mutableStateOf(JunkListState())
@@ -43,7 +43,7 @@ class JunkSettingsViewModel @Inject constructor(
         if (value != null && value > 0) {
             viewModelScope.launch {
                 junkUseCases.updateJunk(junk.copy(value = value))
-                prefs.selectJunk(junk.id)
+                localRepository.selectJunk(junk.id)
             }
         }
     }

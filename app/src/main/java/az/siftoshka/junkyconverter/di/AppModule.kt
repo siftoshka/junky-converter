@@ -6,11 +6,13 @@ import android.content.SharedPreferences
 import androidx.room.Room
 import az.siftoshka.junkyconverter.data.model.JunkDatabase
 import az.siftoshka.junkyconverter.data.repository.JunkRepositoryImpl
+import az.siftoshka.junkyconverter.data.repository.LocalRepositoryImpl
 import az.siftoshka.junkyconverter.domain.repository.JunkRepository
+import az.siftoshka.junkyconverter.domain.repository.LocalRepository
 import az.siftoshka.junkyconverter.domain.usecases.GetJunks
 import az.siftoshka.junkyconverter.domain.usecases.JunkUseCases
 import az.siftoshka.junkyconverter.domain.usecases.UpdateJunk
-import az.siftoshka.junkyconverter.domain.utils.Constants
+import az.siftoshka.junkyconverter.domain.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,6 +42,12 @@ object AppModule {
     @Singleton
     fun provideSharedPreferences(app: Application): SharedPreferences =
         app.applicationContext.getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE)
+
+    @Provides
+    @Singleton
+    fun provideLocalRepository(app: Application, preferences: SharedPreferences): LocalRepository {
+        return LocalRepositoryImpl(app, preferences)
+    }
 
     @Provides
     @Singleton

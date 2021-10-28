@@ -4,17 +4,19 @@ import android.app.Application
 import android.content.SharedPreferences
 import androidx.core.content.edit
 import az.siftoshka.junkyconverter.R
+import az.siftoshka.junkyconverter.domain.model.Junk
+import az.siftoshka.junkyconverter.domain.repository.LocalRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Singleton class to manage [SharedPreferences].
+ * The implementation of repository class for [SharedPreferences].
  */
 @Singleton
-class SharedPrefManager @Inject constructor(
+class LocalRepositoryImpl @Inject constructor(
     private val app: Application,
     private val preferences: SharedPreferences
-) {
+): LocalRepository {
 
     companion object {
 
@@ -24,37 +26,35 @@ class SharedPrefManager @Inject constructor(
         private const val KEY_SETTINGS_TIP = "key_settings_tip"
     }
 
-    fun isIntroShown() = preferences.getBoolean(KEY_SHOWN_INTRO, false)
+    override fun isIntroShown() = preferences.getBoolean(KEY_SHOWN_INTRO, false)
 
-    fun setIntroShown(value: Boolean) {
+    override fun setIntroShown(value: Boolean) {
         preferences.edit(commit = true) {
             putBoolean(KEY_SHOWN_INTRO, value)
         }
     }
 
-    fun getSelectedJunk() = preferences.getInt(KEY_JUNK_ID, 1)
+    override fun getSelectedJunk() = preferences.getInt(KEY_JUNK_ID, 1)
 
-    fun selectJunk(value: Int) {
+    override fun selectJunk(value: Int) {
         preferences.edit(commit = true) {
             putInt(KEY_JUNK_ID, value)
         }
     }
 
-    private fun getVersionName() = preferences.getString(KEY_VERSION_NAME, "")
-
-    fun setVersionName() {
+    override fun setVersionName() {
         preferences.edit(commit = true) {
             putString(KEY_VERSION_NAME, app.getString(R.string.version_name))
         }
     }
 
-    fun isUpdateShown(): Boolean {
-        return app.getString(R.string.version_name) == getVersionName()
+    override fun isUpdateShown(): Boolean {
+        return app.getString(R.string.version_name) == preferences.getString(KEY_VERSION_NAME, "")
     }
 
-    fun isTipVisible() = preferences.getBoolean(KEY_SETTINGS_TIP, true)
+    override fun isTipVisible() = preferences.getBoolean(KEY_SETTINGS_TIP, true)
 
-    fun setTipVisibility(value: Boolean) {
+    override fun setTipVisibility(value: Boolean) {
         preferences.edit(commit = true) {
             putBoolean(KEY_SETTINGS_TIP, value)
         }

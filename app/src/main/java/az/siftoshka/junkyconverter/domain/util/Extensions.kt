@@ -1,4 +1,4 @@
-package az.siftoshka.junkyconverter.domain.utils
+package az.siftoshka.junkyconverter.domain.util
 
 import android.content.Context
 import android.content.Intent

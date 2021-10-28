@@ -38,19 +38,19 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
-import az.siftoshka.junkyconverter.domain.utils.Social
-import az.siftoshka.junkyconverter.domain.utils.getCurrentLanguage
-import az.siftoshka.junkyconverter.domain.utils.getGithubIntent
-import az.siftoshka.junkyconverter.domain.utils.getInstagramIntent
-import az.siftoshka.junkyconverter.domain.utils.getTelegramIntent
+import az.siftoshka.junkyconverter.domain.util.Social
+import az.siftoshka.junkyconverter.domain.util.getCurrentLanguage
+import az.siftoshka.junkyconverter.domain.util.getGithubIntent
+import az.siftoshka.junkyconverter.domain.util.getInstagramIntent
+import az.siftoshka.junkyconverter.domain.util.getTelegramIntent
 import az.siftoshka.junkyconverter.presentation.SharedViewModel
 import az.siftoshka.junkyconverter.presentation.components.AnimationLoader
 import az.siftoshka.junkyconverter.presentation.components.FoldableText
 import az.siftoshka.junkyconverter.presentation.components.JunkyTopAppBar
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
-import az.siftoshka.junkyconverter.presentation.utils.Padding
-import az.siftoshka.junkyconverter.presentation.utils.Screen
-import az.siftoshka.junkyconverter.presentation.utils.SocialColors
+import az.siftoshka.junkyconverter.presentation.util.Padding
+import az.siftoshka.junkyconverter.presentation.util.Screen
+import az.siftoshka.junkyconverter.presentation.util.SocialColors
 
 /**
  * Composable function of Settings screen.

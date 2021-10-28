@@ -1,4 +1,4 @@
-package az.siftoshka.junkyconverter.presentation.utils
+package az.siftoshka.junkyconverter.presentation.util
 
 import androidx.compose.ui.unit.dp
 

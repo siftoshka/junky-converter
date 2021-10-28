@@ -28,14 +28,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
-import az.siftoshka.junkyconverter.domain.utils.Language
-import az.siftoshka.junkyconverter.domain.utils.getCurrentLanguageCode
-import az.siftoshka.junkyconverter.domain.utils.getDeviceCountry
-import az.siftoshka.junkyconverter.domain.utils.getDeviceLanguage
-import az.siftoshka.junkyconverter.domain.utils.updateLanguage
+import az.siftoshka.junkyconverter.domain.util.Language
+import az.siftoshka.junkyconverter.domain.util.getCurrentLanguageCode
+import az.siftoshka.junkyconverter.domain.util.getDeviceCountry
+import az.siftoshka.junkyconverter.domain.util.getDeviceLanguage
+import az.siftoshka.junkyconverter.domain.util.updateLanguage
 import az.siftoshka.junkyconverter.presentation.components.JunkyTopAppBar
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
-import az.siftoshka.junkyconverter.presentation.utils.Padding
+import az.siftoshka.junkyconverter.presentation.util.Padding
 
 /**
  * Composable function of Language screen.

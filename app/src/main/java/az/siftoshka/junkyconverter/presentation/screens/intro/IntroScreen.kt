@@ -30,8 +30,8 @@ import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.presentation.SharedViewModel
 import az.siftoshka.junkyconverter.presentation.components.AnimationLoader
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
-import az.siftoshka.junkyconverter.presentation.utils.Padding
-import az.siftoshka.junkyconverter.presentation.utils.Screen
+import az.siftoshka.junkyconverter.presentation.util.Padding
+import az.siftoshka.junkyconverter.presentation.util.Screen
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 /**

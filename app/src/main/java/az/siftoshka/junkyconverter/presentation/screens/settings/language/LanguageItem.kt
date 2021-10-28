@@ -2,7 +2,7 @@ package az.siftoshka.junkyconverter.presentation.screens.settings.language
 
 import androidx.annotation.StringRes
 import az.siftoshka.junkyconverter.R
-import az.siftoshka.junkyconverter.domain.utils.Language
+import az.siftoshka.junkyconverter.domain.util.Language
 
 /**
  * Item for language.

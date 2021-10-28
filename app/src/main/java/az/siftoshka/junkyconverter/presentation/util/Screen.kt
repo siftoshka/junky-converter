@@ -1,4 +1,4 @@
-package az.siftoshka.junkyconverter.presentation.utils
+package az.siftoshka.junkyconverter.presentation.util
 
 /**
  * The sealed class for the navigation between [Screen]-s.

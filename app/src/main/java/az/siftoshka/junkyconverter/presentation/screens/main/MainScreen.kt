@@ -54,14 +54,14 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
-import az.siftoshka.junkyconverter.domain.utils.Constants
-import az.siftoshka.junkyconverter.domain.utils.moneyFormat
+import az.siftoshka.junkyconverter.domain.util.Constants
+import az.siftoshka.junkyconverter.domain.util.moneyFormat
 import az.siftoshka.junkyconverter.presentation.SharedViewModel
 import az.siftoshka.junkyconverter.presentation.components.JunkyDialog
 import az.siftoshka.junkyconverter.presentation.components.NewUpdate
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
-import az.siftoshka.junkyconverter.presentation.utils.Padding
-import az.siftoshka.junkyconverter.presentation.utils.Screen
+import az.siftoshka.junkyconverter.presentation.util.Padding
+import az.siftoshka.junkyconverter.presentation.util.Screen
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.launch
 

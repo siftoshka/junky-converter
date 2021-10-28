@@ -6,8 +6,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import az.siftoshka.junkyconverter.data.repository.SharedPrefManager
 import az.siftoshka.junkyconverter.domain.model.Junk
+import az.siftoshka.junkyconverter.domain.repository.LocalRepository
 import az.siftoshka.junkyconverter.domain.usecases.JunkUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -21,7 +21,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val junkUseCases: JunkUseCases,
-    private val prefs: SharedPrefManager
+    private val localRepository: LocalRepository
 ) : ViewModel() {
 
     private val moneyBuilder = StringBuilder()
@@ -51,7 +51,7 @@ class MainViewModel @Inject constructor(
         getJunksJob?.cancel()
         getJunksJob = junkUseCases.getJunks().onEach { junks ->
             _junksState.value = junksState.value.copy(junks = junks)
-            junks.find { it.id == prefs.getSelectedJunk() }?.let { setJunk(it) }
+            junks.find { it.id == localRepository.getSelectedJunk() }?.let { setJunk(it) }
         }.launchIn(viewModelScope)
     }
 
@@ -96,7 +96,7 @@ class MainViewModel @Inject constructor(
     }
 
     fun setJunk(junk: Junk) {
-        prefs.selectJunk(junk.id)
+        localRepository.selectJunk(junk.id)
         _junkState.value = junkState.value.copy(junk = junk)
         selectedJunk = junk
         clearData()

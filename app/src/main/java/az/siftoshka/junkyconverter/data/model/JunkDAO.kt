@@ -5,7 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import az.siftoshka.junkyconverter.domain.model.Junk
-import az.siftoshka.junkyconverter.domain.utils.Constants
+import az.siftoshka.junkyconverter.domain.util.Constants
 import kotlinx.coroutines.flow.Flow
 
 /**

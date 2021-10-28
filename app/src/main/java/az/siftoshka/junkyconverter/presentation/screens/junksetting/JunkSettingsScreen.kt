@@ -45,7 +45,7 @@ import az.siftoshka.junkyconverter.presentation.SharedViewModel
 import az.siftoshka.junkyconverter.presentation.components.JunkyTopAppBar
 import az.siftoshka.junkyconverter.presentation.components.Tip
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
-import az.siftoshka.junkyconverter.presentation.utils.Padding
+import az.siftoshka.junkyconverter.presentation.util.Padding
 
 /**
  * Composable function of Junk Settings screen.

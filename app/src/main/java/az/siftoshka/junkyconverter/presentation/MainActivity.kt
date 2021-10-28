@@ -22,7 +22,7 @@ import az.siftoshka.junkyconverter.presentation.screens.main.MainScreen
 import az.siftoshka.junkyconverter.presentation.screens.settings.language.LanguageScreen
 import az.siftoshka.junkyconverter.presentation.screens.settings.SettingsScreen
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
-import az.siftoshka.junkyconverter.presentation.utils.Screen
+import az.siftoshka.junkyconverter.presentation.util.Screen
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController

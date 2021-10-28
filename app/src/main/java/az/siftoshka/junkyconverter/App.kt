@@ -1,7 +1,7 @@
 package az.siftoshka.junkyconverter
 
 import android.app.Application
-import az.siftoshka.junkyconverter.domain.utils.getDeviceLanguage
+import az.siftoshka.junkyconverter.domain.util.getDeviceLanguage
 import com.yariksoffice.lingver.Lingver
 import dagger.hilt.android.HiltAndroidApp
 
