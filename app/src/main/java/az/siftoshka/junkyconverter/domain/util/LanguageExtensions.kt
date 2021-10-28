@@ -7,7 +7,7 @@ import com.yariksoffice.lingver.Lingver
 import java.util.Locale
 
 /**
- *  Language extension file.
+ *  [Language] extension file.
  */
 @Suppress("Deprecation")
 fun getDeviceLanguage(): String {

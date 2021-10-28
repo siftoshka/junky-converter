@@ -105,9 +105,9 @@ fun SettingsScreen(
                     TextItem(text = R.string.text_settings_app_version, secondaryText = R.string.version_name)
                     ContactMeField(text = R.string.text_settings_contact_me) {
                         when (it) {
-                            Social.TELEGRAM -> getTelegramIntent(context)
-                            Social.GITHUB -> getGithubIntent(context)
-                            Social.INSTAGRAM -> getInstagramIntent(context)
+                            Social.TELEGRAM -> context.getTelegramIntent()
+                            Social.GITHUB -> context.getGithubIntent()
+                            Social.INSTAGRAM -> context.getInstagramIntent()
                         }
                     }
                     FoldableText(shortText = R.string.text_settings_credits, longText = R.string.text_settings_credits_full)
@@ -118,9 +118,11 @@ fun SettingsScreen(
                         horizontalArrangement = Arrangement.Center,
                         verticalAlignment = Alignment.Bottom
                     ) {
-                        AnimationLoader(value = R.raw.ingredients, modifier = Modifier
-                            .width(200.dp)
-                            .height(120.dp))
+                        AnimationLoader(
+                            value = R.raw.ingredients, modifier = Modifier
+                                .width(200.dp)
+                                .height(120.dp)
+                        )
                     }
                 }
             }

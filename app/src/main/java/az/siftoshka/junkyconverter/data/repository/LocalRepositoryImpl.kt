@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.SharedPreferences
 import androidx.core.content.edit
 import az.siftoshka.junkyconverter.R
-import az.siftoshka.junkyconverter.domain.model.Junk
 import az.siftoshka.junkyconverter.domain.repository.LocalRepository
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -34,7 +33,7 @@ class LocalRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getSelectedJunk() = preferences.getInt(KEY_JUNK_ID, 1)
+    override fun getSelectedJunk() = preferences.getInt(KEY_JUNK_ID, 0)
 
     override fun selectJunk(value: Int) {
         preferences.edit(commit = true) {
