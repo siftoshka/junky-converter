@@ -51,9 +51,9 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideJunkUseCases(repository: JunkRepository, app: Application): JunkUseCases {
+    fun provideJunkUseCases(repository: JunkRepository): JunkUseCases {
         return JunkUseCases(
-            getJunks = GetJunks(repository, app),
+            getJunks = GetJunks(repository),
             updateJunk = UpdateJunk(repository)
         )
     }
