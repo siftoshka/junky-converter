@@ -20,6 +20,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -27,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
+import az.siftoshka.junkyconverter.domain.util.Constants
 import az.siftoshka.junkyconverter.presentation.SharedViewModel
 import az.siftoshka.junkyconverter.presentation.components.AnimationLoader
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
@@ -44,8 +46,10 @@ fun IntroScreen(
 ) {
     val systemUiController = rememberSystemUiController()
     systemUiController.setStatusBarColor(color = MaterialTheme.colors.surface)
+    val context = LocalContext.current
 
-    viewModel.setInitialData()
+    Constants.junkNameRes.forEach { viewModel.junkNames.add(context.getString(it)) }
+    viewModel.initialData()
 
     JunkyConverterTheme {
         Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxSize()) {

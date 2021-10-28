@@ -46,7 +46,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -82,7 +81,6 @@ fun MainScreen(
     val state = viewModel.junkState.value
     val listState = viewModel.junksState.value
     val updateState = sharedViewModel.updateState.value
-    val context = LocalContext.current
 
     val dialogState = remember { mutableStateOf(false) }
 
@@ -100,7 +98,7 @@ fun MainScreen(
             scrimColor = Color.Transparent,
             sheetContent = {
                 LazyColumn(modifier = Modifier.defaultMinSize(minHeight = 1.dp)) {
-                    listState.junks?.sortedBy { context.getString(it.name) }?.let { junks ->
+                    listState.junks?.let { junks ->
                         items(junks.size) {
                             val junk = junks[it]
                             JunkBottomItem(junk.name, junk.icon, junk.iconDescription, junk.id == viewModel.selectedJunk?.id) {
@@ -166,7 +164,7 @@ fun MainScreen(
 
 @Composable
 fun Converter(
-    @StringRes name: Int,
+    name: String,
     viewModel: MainViewModel = hiltViewModel()
 ) {
     Column(
@@ -178,7 +176,7 @@ fun Converter(
                 .padding(horizontal = Padding.Smallest), horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = stringResource(id = name),
+                text = name,
                 style = MaterialTheme.typography.h3,
                 color = MaterialTheme.colors.onBackground
             )
@@ -330,7 +328,7 @@ fun NumPadItem(
 @ExperimentalMaterialApi
 @Composable
 fun JunkBottomItem(
-    @StringRes name: Int,
+    name: String,
     @DrawableRes icon: Int,
     @StringRes contentDescription: Int,
     isSelected: Boolean,
@@ -346,7 +344,7 @@ fun JunkBottomItem(
         ListItem(
             text = {
                 Text(
-                    text = stringResource(id = name),
+                    text = name,
                     style = MaterialTheme.typography.h4,
                     color = MaterialTheme.colors.onSurface,
                 )

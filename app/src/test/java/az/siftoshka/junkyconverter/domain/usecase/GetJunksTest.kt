@@ -4,7 +4,7 @@ import az.siftoshka.junkyconverter.data.repository.TestJunkRepository
 import org.junit.Before
 
 /**
- * Testing of getting junks
+ * Testing of getting junks.
  */
 class GetJunksTest {
 

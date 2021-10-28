@@ -10,7 +10,7 @@ import az.siftoshka.junkyconverter.domain.util.Constants
 @Entity(tableName = Constants.TABLE_NAME)
 data class Junk(
     @PrimaryKey var id: Int,
-    var name: Int,
+    var name: String,
     var value: Float? = 1f,
     var icon: Int,
     var iconDescription: Int

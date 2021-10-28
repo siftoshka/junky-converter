@@ -26,13 +26,16 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
+import az.siftoshka.junkyconverter.domain.util.Constants
 import az.siftoshka.junkyconverter.domain.util.Language
 import az.siftoshka.junkyconverter.domain.util.getCurrentLanguageCode
 import az.siftoshka.junkyconverter.domain.util.getDeviceCountry
 import az.siftoshka.junkyconverter.domain.util.getDeviceLanguage
 import az.siftoshka.junkyconverter.domain.util.updateLanguage
+import az.siftoshka.junkyconverter.presentation.SharedViewModel
 import az.siftoshka.junkyconverter.presentation.components.JunkyTopAppBar
 import az.siftoshka.junkyconverter.presentation.theme.JunkyConverterTheme
 import az.siftoshka.junkyconverter.presentation.util.Padding
@@ -43,7 +46,10 @@ import az.siftoshka.junkyconverter.presentation.util.Padding
 @ExperimentalComposeUiApi
 @ExperimentalMaterialApi
 @Composable
-fun LanguageScreen(navController: NavController) {
+fun LanguageScreen(
+    navController: NavController,
+    viewModel: SharedViewModel = hiltViewModel()
+) {
 
     val keyboardController = LocalSoftwareKeyboardController.current
     val context = LocalContext.current
@@ -89,7 +95,9 @@ fun LanguageScreen(navController: NavController) {
                                     context.updateLanguage(Language.RUSSIAN.language, Language.RUSSIAN.country)
                                 }
                             }
+                            Constants.junkNameRes.forEach { viewModel.junkNames.add(context.getString(it)) }
                             navController.popBackStack()
+                            viewModel.initialData()
                         }
                     }
                 }

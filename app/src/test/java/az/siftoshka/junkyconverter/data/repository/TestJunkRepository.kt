@@ -16,8 +16,8 @@ class TestJunkRepository : JunkRepository {
         junks.add(junk)
     }
 
-    override suspend fun insertInitialJunks() {
-        junks
+    override suspend fun insertInitialJunks(junkNames: List<String>) {
+        junks.forEachIndexed { index, junk -> junk.name = junkNames[index] }
     }
 
     override fun getAllJunks(): Flow<List<Junk>> {

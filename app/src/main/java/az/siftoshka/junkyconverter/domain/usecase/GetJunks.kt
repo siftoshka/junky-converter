@@ -3,6 +3,7 @@ package az.siftoshka.junkyconverter.domain.usecase
 import az.siftoshka.junkyconverter.domain.model.Junk
 import az.siftoshka.junkyconverter.domain.repository.JunkRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 /**
@@ -13,6 +14,8 @@ class GetJunks @Inject constructor(
 ) {
 
     operator fun invoke(): Flow<List<Junk>> {
-        return repository.getAllJunks()
+        return repository.getAllJunks().map { junks ->
+            junks.sortedBy { it.name }
+        }
     }
 }

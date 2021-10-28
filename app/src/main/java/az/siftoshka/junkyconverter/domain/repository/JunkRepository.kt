@@ -10,7 +10,7 @@ interface JunkRepository {
 
     suspend fun insertJunk(junk: Junk)
 
-    suspend fun insertInitialJunks()
+    suspend fun insertInitialJunks(junkNames: List<String>)
 
     fun getAllJunks(): Flow<List<Junk>>
 }

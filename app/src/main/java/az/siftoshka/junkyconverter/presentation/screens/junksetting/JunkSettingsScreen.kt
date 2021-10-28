@@ -125,7 +125,7 @@ fun JunkItem(
                     .padding(vertical = Padding.Default)
             )
             Text(
-                text = stringResource(id = junk.name),
+                text = junk.name,
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.onBackground,
                 modifier = Modifier.weight(1f)

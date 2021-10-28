@@ -23,13 +23,15 @@ class SharedViewModel @Inject constructor(
     private val _updateState = mutableStateOf(false)
     val updateState: State<Boolean> = _updateState
 
+    val junkNames = mutableListOf<String>()
+
     fun isIntroShown() = localRepository.isIntroShown()
 
     fun setIntroShown(value: Boolean) = localRepository.setIntroShown(value)
 
-    fun setInitialData() {
+    fun initialData() {
         viewModelScope.launch {
-            repository.insertInitialJunks()
+            repository.insertInitialJunks(junkNames)
         }
     }
 
