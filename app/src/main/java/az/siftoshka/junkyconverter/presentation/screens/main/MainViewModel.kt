@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import az.siftoshka.junkyconverter.domain.model.Junk
 import az.siftoshka.junkyconverter.domain.repository.LocalRepository
-import az.siftoshka.junkyconverter.domain.usecases.JunkUseCases
+import az.siftoshka.junkyconverter.domain.usecase.JunkUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn

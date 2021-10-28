@@ -1,4 +1,4 @@
-package az.siftoshka.junkyconverter.domain.usecases
+package az.siftoshka.junkyconverter.domain.usecase
 
 import az.siftoshka.junkyconverter.domain.model.Junk
 import az.siftoshka.junkyconverter.domain.repository.JunkRepository

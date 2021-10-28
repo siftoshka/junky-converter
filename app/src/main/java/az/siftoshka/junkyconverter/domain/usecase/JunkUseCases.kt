@@ -1,4 +1,4 @@
-package az.siftoshka.junkyconverter.domain.usecases
+package az.siftoshka.junkyconverter.domain.usecase
 
 /**
  * Data class for use-cases related to Junks.

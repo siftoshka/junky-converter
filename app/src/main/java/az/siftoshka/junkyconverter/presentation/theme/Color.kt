@@ -10,6 +10,6 @@ val SecondaryLight = Color(0xFF606060)
 
 val DarkGray = Color(0xFF202020)
 val MediumGray = Color(0xFF303030)
-val Pink = Color(0xFFF6F3EE)
+val Pink = Color(0xFFE4DEDA)
 val PinkLight = Color(0xFFEFEBE9)
 val White = Color(0xFFEEEEEE)

@@ -1,4 +1,4 @@
-package az.siftoshka.junkyconverter.domain.usecases
+package az.siftoshka.junkyconverter.domain.usecase
 
 import az.siftoshka.junkyconverter.data.repository.TestJunkRepository
 import org.junit.Before

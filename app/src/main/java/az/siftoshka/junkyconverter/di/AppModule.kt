@@ -9,9 +9,9 @@ import az.siftoshka.junkyconverter.data.repository.JunkRepositoryImpl
 import az.siftoshka.junkyconverter.data.repository.LocalRepositoryImpl
 import az.siftoshka.junkyconverter.domain.repository.JunkRepository
 import az.siftoshka.junkyconverter.domain.repository.LocalRepository
-import az.siftoshka.junkyconverter.domain.usecases.GetJunks
-import az.siftoshka.junkyconverter.domain.usecases.JunkUseCases
-import az.siftoshka.junkyconverter.domain.usecases.UpdateJunk
+import az.siftoshka.junkyconverter.domain.usecase.GetJunks
+import az.siftoshka.junkyconverter.domain.usecase.JunkUseCases
+import az.siftoshka.junkyconverter.domain.usecase.UpdateJunk
 import az.siftoshka.junkyconverter.domain.util.Constants
 import dagger.Module
 import dagger.Provides
