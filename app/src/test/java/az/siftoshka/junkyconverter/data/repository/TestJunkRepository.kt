@@ -17,7 +17,11 @@ class TestJunkRepository : JunkRepository {
     }
 
     override suspend fun insertInitialJunks(junkNames: List<String>) {
-        junks.forEachIndexed { index, junk -> junk.name = junkNames[index] }
+        TODO("Not for testing here")
+    }
+
+    override suspend fun getSelectedJunk(id: Int): Junk {
+        return junks.find { it.id == id } ?: Junk(99, "Error", 1f, 0, 0)
     }
 
     override fun getAllJunks(): Flow<List<Junk>> {

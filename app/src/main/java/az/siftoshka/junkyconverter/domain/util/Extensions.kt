@@ -10,8 +10,8 @@ import java.text.DecimalFormat
  */
 fun String.moneyFormat(): String {
     if (this == "0") return this
-    return if (contains(".")) DecimalFormat("##,###.00").format(toFloat())
-    else DecimalFormat("##,###").format(toFloat())
+    return if (contains(".")) DecimalFormat("#,##0.00").format(toBigDecimal())
+    else DecimalFormat("#,###").format(toBigDecimal())
 }
 
 fun Context.getGithubIntent() = startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(Constants.DEV_GITHUB)))
