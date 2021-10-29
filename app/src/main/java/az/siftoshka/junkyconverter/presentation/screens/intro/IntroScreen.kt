@@ -60,7 +60,7 @@ fun IntroScreen(
             ) {
                 Button(
                     onClick = {
-                        //viewModel.setIntroShown(true)
+                        viewModel.setIntroShown(true)
                         navController.navigate(Screen.MainScreen.route) {
                             popUpTo(Screen.IntroScreen.route) { inclusive = true }
                         }
