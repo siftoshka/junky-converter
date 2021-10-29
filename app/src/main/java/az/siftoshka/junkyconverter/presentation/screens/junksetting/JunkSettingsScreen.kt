@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -82,7 +81,6 @@ fun JunkSettingsScreen(
                 }
                 LazyColumn(
                     modifier = Modifier
-                        .defaultMinSize(minHeight = 1.dp)
                         .padding(end = Padding.Default)
                         .fillMaxWidth()
                 ) {

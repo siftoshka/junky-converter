@@ -74,6 +74,14 @@
     <string name="tip_how_to_use_long">Here you can edit values of each junk food.\nFor example, 2.5 Burgers will show how many you can buy with "1" of your own money.\n\n1 Your money = 2.5 Burgers.</string>
     <string name="update_dialog_title">What\'s new</string>
     <string name="update_dialog_text">
+        v0.7.0
+        \n\n
+        - Updated Converter (UI &amp; Logic)
+        \n
+        - Updated Settings screen
+        \n
+        - Languages
+        \n\n\n
         v0.6.0
         \n\n
         - Settings screen
@@ -83,16 +91,6 @@
         - Updated light theme
         \n
         - New update notificator
-        \n\n\n
-        v0.5.0
-        \n\n
-        - Images
-        \n
-        - Updated Theming
-        \n
-        - More Junks
-        \n
-        - Selected junk indicator
     </string>
     <string name="update_dialog_button">Got it</string>
 
