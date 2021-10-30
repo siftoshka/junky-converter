@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 /**
- * The test(fake) repository class for [Junk] model.
+ * The test (fake) repository class for [Junk] model.
  */
 class TestJunkRepository : JunkRepository {
 
@@ -20,8 +20,8 @@ class TestJunkRepository : JunkRepository {
         TODO("Not for testing here")
     }
 
-    override suspend fun getSelectedJunk(id: Int): Junk {
-        return junks.find { it.id == id } ?: Junk(99, "Error", 1f, 0, 0)
+    override suspend fun getSelectedJunk(id: Int): Float {
+        return junks.find { it.id == id }?.value ?: 1f
     }
 
     override fun getAllJunks(): Flow<List<Junk>> {

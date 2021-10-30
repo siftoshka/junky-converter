@@ -21,7 +21,7 @@ interface JunkDAO {
     suspend fun insertInitialJunks(junks: List<Junk>)
 
     @Query("SELECT * FROM ${Constants.TABLE_NAME} WHERE id = :id")
-    suspend fun getSelectedJunk(id: Int) : Junk
+    suspend fun getSelectedJunk(id: Int) : Junk?
 
     @Query("SELECT * FROM ${Constants.TABLE_NAME}")
     fun getAllJunks() : Flow<List<Junk>>

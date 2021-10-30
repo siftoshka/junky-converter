@@ -9,7 +9,7 @@ object Constants {
 
     // Database
     const val TABLE_NAME = "junk_food_table"
-    const val DATABASE_NAME = "junks_db"
+    const val DATABASE_NAME = "junky_db"
 
     // SharedPreferences
     const val PREFS_NAME = "app_prefs"
