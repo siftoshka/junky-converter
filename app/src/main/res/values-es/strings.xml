@@ -1,0 +1,104 @@
+<resources>
+    <string name="app_name">Junky Converter</string>
+
+    <!-- Introduction Screen -->
+    <string name="app_name_introduction">Junky\nConverter</string>
+    <string name="app_description">Convert your money to the number of junky food. You are able to make your personal prices for each food. \n\nIt is absolutely free and enjoyable application! \nYou should try it now! </string>
+    <string name="btn_intro">I am interested :)</string>
+
+    <!-- Main Screen -->
+    <string name="text_junky">Junky</string>
+    <string name="text_converter">Converter</string>
+    <string name="text_your_money">Dinero</string>
+    <string name="text_change_junk">Cambiar de comida</string>
+    <string name="menu_text_junks_tuning">Modificación</string>
+    <string name="menu_text_settings">Parámetros</string>
+    <string name="btn_selected">Seleccionar</string>
+
+    <!-- Junk Settings Screen -->
+    <string name="junk_settings_title">Modificación</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Parámetros</string>
+    <string name="text_settings_general">General</string>
+    <string name="text_settings_language">Idioma</string>
+    <string name="text_settings_show_tip_title">Mostrar la pestaña de ayuda</string>
+    <string name="text_settings_show_tip_description">Al pulsar se ve la pestaña sobre la pantalla de modificación</string>
+    <string name="text_settings_about">Sobre</string>
+    <string name="text_settings_app_version">Versión de la app</string>
+    <string name="text_settings_credits">Copyright</string>
+    <string name="text_settings_credits_full">Burger by Enzo Bartier, lottiefiles.com\npizza ingrediants by Mvsaffa, lottiefiles.com</string>
+    <string name="text_settings_contact_me">Para contactarme</string>
+
+    <!-- Item names -->
+    <string name="item_burgers">Hamburguesas</string>
+    <string name="item_pizzas">Pizza</string>
+    <string name="item_kebabs">Kebab</string>
+    <string name="item_muffins">Muffin</string>
+    <string name="item_chips">Papas fritas</string>
+    <string name="item_donuts">Donut</string>
+    <string name="item_tacos">Taco</string>
+    <string name="item_fried_chicken">Pollo frito</string>
+    <string name="item_burritos">Burrito</string>
+    <string name="item_nuggets">Nugget</string>
+    <string name="item_lollipops">Lollipop</string>
+    <string name="item_candies">Caramelos</string>
+    <string name="item_cookies">Pasteles</string>
+    <string name="item_hot_dogs">Hot dog</string>
+
+    <!-- Item names -->
+    <string name="img_desc_item_burgers">The icon of burger</string>
+    <string name="img_desc_item_pizzas">The icon of pizza slice</string>
+    <string name="img_desc_item_kebabs">The icon of kebab</string>
+    <string name="img_desc_item_muffins">The icon of muffin</string>
+    <string name="img_desc_item_chips">The icon of chips</string>
+    <string name="img_desc_item_donuts">The icon of donut</string>
+    <string name="img_desc_item_tacos">The icon of taco</string>
+    <string name="img_desc_item_fried_chicken">The icon of fried chicken</string>
+    <string name="img_desc_item_burritos">The icon of burrito</string>
+    <string name="img_desc_item_nuggets">The icon of nugget</string>
+    <string name="img_desc_item_lollipops">The icon of lollipop</string>
+    <string name="img_desc_item_candies">The icon of candy</string>
+    <string name="img_desc_item_cookies">The icon of cookie</string>
+    <string name="img_desc_item_hot_dogs">The icon of hot dog</string>
+
+    <!-- Icons description -->
+    <string name="ic_desc_back">Back button</string>
+    <string name="ic_desc_forward">Forward button</string>
+    <string name="ic_desc_telegram">Telegram icon</string>
+    <string name="ic_desc_instagram">Instagram icon</string>
+    <string name="ic_desc_github">Github icon</string>
+
+    <!-- Messages & Tips -->
+    <string name="tip_how_to_use">Instrucciones de uso</string>
+    <string name="tip_how_to_use_long">Here you can edit the values of each junk food.\nJust put there how much each food costs in your local restaurants.\n\nExample: 2.5 Your money = 1 Burger.</string>
+    <string name="update_dialog_title">Nuevo</string>
+    <string name="update_dialog_text">
+        v0.7.0
+        \n\n
+        - Updated Converter (UI &amp; Logic)
+        \n
+        - Updated Settings screen
+        \n
+        - Languages
+        \n\n\n
+        v0.6.0
+        \n\n
+        - Settings screen
+        \n
+        - Animations
+        \n
+        - Updated light theme
+        \n
+        - New update notificator
+    </string>
+    <string name="update_dialog_button">Entendido</string>
+
+    <!-- Languages -->
+    <string name="text_lang_automatic">Automático</string>
+    <string name="text_lang_english">Inglés</string>
+    <string name="text_lang_azerbaijani">Azerí</string>
+    <string name="text_lang_spanish">Español</string>
+    <string name="text_lang_french">Francés</string>
+    <string name="text_lang_russian">Ruso</string>
+</resources>
