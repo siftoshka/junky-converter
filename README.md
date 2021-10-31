@@ -1,6 +1,6 @@
 # Junky Converter (Jetpack Compose App)
   ### Convert your money to the number of junky food. You are able to make your personal prices for each food.
-<p align="center">
+<p>
   <img width="180" src="https://user-images.githubusercontent.com/22058062/139590409-8c0c7e29-c29e-4490-b618-6e38bc2ce547.png">
   <img width="180" src="https://user-images.githubusercontent.com/22058062/139590502-7680e076-30c4-4a5a-8d41-14abff0ebd1d.png">
   <img width="180" src="https://user-images.githubusercontent.com/22058062/139590540-563b7ad7-5708-4cf3-825b-bd13aaa59fea.png">
