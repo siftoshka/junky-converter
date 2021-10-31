@@ -46,6 +46,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -55,6 +56,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
 import az.siftoshka.junkyconverter.domain.util.Constants
+import az.siftoshka.junkyconverter.domain.util.TestTag
 import az.siftoshka.junkyconverter.domain.util.moneyFormat
 import az.siftoshka.junkyconverter.presentation.SharedViewModel
 import az.siftoshka.junkyconverter.presentation.components.JunkyDialog
@@ -92,6 +94,7 @@ fun MainScreen(
 
     JunkyConverterTheme {
         ModalBottomSheetLayout(
+            modifier = Modifier.testTag(TestTag.MODAL_BOTTOM_SHEET),
             sheetState = sheetState,
             sheetBackgroundColor = MaterialTheme.colors.surface,
             sheetShape = MaterialTheme.shapes.large,
@@ -168,7 +171,7 @@ fun Converter(
     viewModel: MainViewModel = hiltViewModel()
 ) {
     Column(
-        modifier = Modifier.padding(bottom = 96.dp),
+        modifier = Modifier.padding(bottom = 48.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Column(
