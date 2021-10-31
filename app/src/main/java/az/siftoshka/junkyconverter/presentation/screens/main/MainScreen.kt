@@ -87,7 +87,7 @@ fun MainScreen(
     val dialogState = remember { mutableStateOf(false) }
 
     val systemUiController = rememberSystemUiController()
-    systemUiController.setStatusBarColor(color = MaterialTheme.colors.background)
+    systemUiController.setSystemBarsColor(color = MaterialTheme.colors.background)
 
     val sheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
     val scope = rememberCoroutineScope()
@@ -294,7 +294,7 @@ fun Options(
 fun NumPad(viewModel: MainViewModel = hiltViewModel()) {
     LazyVerticalGrid(
         cells = GridCells.Fixed(3),
-        modifier = Modifier.padding(Padding.Smaller)
+        modifier = Modifier.padding(Padding.Smallest)
     ) {
         items(Constants.numPadNumbers.count()) { index ->
             NumPadItem(Constants.numPadNumbers[index]) {

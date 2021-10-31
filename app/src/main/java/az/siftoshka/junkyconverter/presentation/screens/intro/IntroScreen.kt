@@ -46,6 +46,7 @@ fun IntroScreen(
 ) {
     val systemUiController = rememberSystemUiController()
     systemUiController.setStatusBarColor(color = MaterialTheme.colors.surface)
+    systemUiController.setNavigationBarColor(color = MaterialTheme.colors.background)
     val context = LocalContext.current
 
     Constants.junkNameRes.forEach { viewModel.junkNames.add(context.getString(it)) }
