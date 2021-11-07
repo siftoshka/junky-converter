@@ -1,5 +1,9 @@
 # Junky Converter (Jetpack Compose App)
-### Convert your money to the number of junky food. You are able to make your personal prices for each food.
+### Branches
+- ```master``` - The main branch with working code.
+- ```experimental``` - Some experiments with compose, libs and etc.
+#
+Convert your money to the number of junky food. You are able to make your personal prices for each food.
 <p>
   <img width="180" src="https://user-images.githubusercontent.com/22058062/140297224-33ca8ef0-ac12-445f-bfeb-189309569357.png">
   <img width="180" src="https://user-images.githubusercontent.com/22058062/139627982-27aebc0e-77a3-414b-8a78-d58b3c0eeba3.png">
