@@ -1,0 +1,34 @@
+-- CREATE TABLE some_types (
+--   some_long INTEGER,           -- Stored as INTEGER in db, retrieved as Long
+--   some_double REAL,            -- Stored as REAL in db, retrieved as Double
+--   some_string TEXT,            -- Stored as TEXT in db, retrieved as String
+--   some_blob BLOB,              -- Stored as BLOB in db, retrieved as ByteArray
+--   some_int INTEGER AS Int,     -- Stored as INTEGER in db, retrieved as Int
+--   some_short INTEGER AS Short, -- Stored as INTEGER in db, retrieved as Short
+--   some_float REAL AS Float     -- Stored as REAL in db, retrieved as Float
+-- );
+
+CREATE TABLE junk (
+    id INTEGER NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    value REAL AS Float,
+    icon INTEGER AS Int NOT NULL,
+    icon_description INTEGER AS Int NOT NULL
+);
+
+getAllJunks:
+SELECT * FROM junk;
+
+insertJunk:
+INSERT OR REPLACE
+INTO junk (
+    id,
+    name,
+    value,
+    icon,
+    icon_description
+) VALUES (?, ?, ?, ?, ?);
+
+getSelectedJunk:
+SELECT * FROM junk
+WHERE id= :id;
