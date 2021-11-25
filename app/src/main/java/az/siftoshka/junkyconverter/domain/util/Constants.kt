@@ -8,8 +8,7 @@ import az.siftoshka.junkyconverter.R
 object Constants {
 
     // Database
-    const val TABLE_NAME = "junk_food_table"
-    const val DATABASE_NAME = "junky_db"
+    const val DATABASE_NAME = "junky_db_exp"
 
     // SharedPreferences
     const val PREFS_NAME = "app_prefs"

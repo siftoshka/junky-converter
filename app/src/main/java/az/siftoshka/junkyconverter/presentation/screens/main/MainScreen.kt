@@ -104,7 +104,7 @@ fun MainScreen(
                     listState.junks?.let { junks ->
                         items(junks.size) {
                             val junk = junks[it]
-                            JunkBottomItem(junk.name, junk.icon, junk.iconDescription, junk.id == viewModel.selectedJunk?.id) {
+                            JunkBottomItem(junk.name, junk.icon, junk.icon_description, junk.id == viewModel.selectedJunk?.id) {
                                 viewModel.setJunk(junks[it])
                                 scope.launch { sheetState.hide() }
                             }

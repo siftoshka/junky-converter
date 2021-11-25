@@ -1,7 +1,6 @@
 package az.siftoshka.junkyconverter.domain.usecase
 
 import az.siftoshka.junkyconverter.data.repository.TestJunkRepository
-import az.siftoshka.junkyconverter.domain.model.Junk
 import az.siftoshka.junkyconverter.domain.util.moneyFormat
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.flow.first

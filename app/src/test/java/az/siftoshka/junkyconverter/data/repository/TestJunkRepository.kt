@@ -1,6 +1,5 @@
 package az.siftoshka.junkyconverter.data.repository
 
-import az.siftoshka.junkyconverter.domain.model.Junk
 import az.siftoshka.junkyconverter.domain.repository.JunkRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

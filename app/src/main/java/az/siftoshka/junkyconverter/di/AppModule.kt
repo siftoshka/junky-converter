@@ -3,16 +3,15 @@ package az.siftoshka.junkyconverter.di
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.room.Room
-import az.siftoshka.junkyconverter.data.model.JunkDatabase
-import az.siftoshka.junkyconverter.data.repository.JunkRepositoryImpl
-import az.siftoshka.junkyconverter.data.repository.LocalRepositoryImpl
+import az.siftoshka.junkyconverter.data.LocalRepositoryImpl
 import az.siftoshka.junkyconverter.domain.repository.JunkRepository
 import az.siftoshka.junkyconverter.domain.repository.LocalRepository
 import az.siftoshka.junkyconverter.domain.usecase.GetJunks
 import az.siftoshka.junkyconverter.domain.usecase.JunkUseCases
 import az.siftoshka.junkyconverter.domain.usecase.UpdateJunk
 import az.siftoshka.junkyconverter.domain.util.Constants
+import com.squareup.sqldelight.android.AndroidSqliteDriver
+import com.squareup.sqldelight.db.SqlDriver
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,14 +27,18 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideJunkDatabase(app: Application): JunkDatabase {
-        return Room.databaseBuilder(app, JunkDatabase::class.java, Constants.DATABASE_NAME).build()
+    fun provideAndroidDriver(app: Application): SqlDriver {
+        return AndroidSqliteDriver(
+            schema = JunkRepository.schema,
+            context = app,
+            name = JunkRepository.dbName
+        )
     }
 
     @Provides
     @Singleton
-    fun provideJunkRepository(db: JunkDatabase): JunkRepository {
-        return JunkRepositoryImpl(db.getJunkDAO())
+    fun provideRocketCache(sqlDriver: SqlDriver): JunkRepository {
+        return JunkRepository.build(sqlDriver = sqlDriver)
     }
 
     @Provides

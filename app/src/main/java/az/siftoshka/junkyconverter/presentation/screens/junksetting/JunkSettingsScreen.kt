@@ -39,7 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import az.siftoshka.junkyconverter.R
-import az.siftoshka.junkyconverter.domain.model.Junk
+import az.siftoshka.junkyconverter.datasource.Junk
 import az.siftoshka.junkyconverter.presentation.SharedViewModel
 import az.siftoshka.junkyconverter.presentation.components.JunkyTopAppBar
 import az.siftoshka.junkyconverter.presentation.components.Tip
@@ -117,7 +117,7 @@ fun JunkItem(
         ) {
             Image(
                 painter = painterResource(id = junk.icon),
-                contentDescription = stringResource(id = junk.iconDescription),
+                contentDescription = stringResource(id = junk.icon_description),
                 modifier = Modifier
                     .size(64.dp)
                     .padding(vertical = Padding.Default)

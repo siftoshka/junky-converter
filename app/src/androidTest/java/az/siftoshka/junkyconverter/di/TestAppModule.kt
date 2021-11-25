@@ -4,9 +4,8 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.room.Room
-import az.siftoshka.junkyconverter.data.model.JunkDatabase
-import az.siftoshka.junkyconverter.data.repository.JunkRepositoryImpl
-import az.siftoshka.junkyconverter.data.repository.LocalRepositoryImpl
+import az.siftoshka.junkyconverter.data.JunkRepositoryImpl
+import az.siftoshka.junkyconverter.data.LocalRepositoryImpl
 import az.siftoshka.junkyconverter.domain.repository.JunkRepository
 import az.siftoshka.junkyconverter.domain.repository.LocalRepository
 import az.siftoshka.junkyconverter.domain.usecase.GetJunks

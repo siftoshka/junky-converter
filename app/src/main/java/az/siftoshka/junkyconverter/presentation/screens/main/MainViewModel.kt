@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import az.siftoshka.junkyconverter.domain.model.Junk
+import az.siftoshka.junkyconverter.datasource.Junk
 import az.siftoshka.junkyconverter.domain.repository.LocalRepository
 import az.siftoshka.junkyconverter.domain.usecase.JunkUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
